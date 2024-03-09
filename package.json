@@ -1,4 +1,5 @@
 {
+
   "name": "spotify",
   "version": "0.1.0",
   "private": true,
@@ -31,7 +32,8 @@
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "json-server --port 3001 --host localhost db.json"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "json-server": "^1.0.0-alpha.23",
     "tailwindcss": "^3.4.1"
   }
 }

@@ -6,7 +6,8 @@ import { AddUserModal } from '../components/AddUserModal';
 import { UserControlItem } from '../components/UserControlItem';
 
 export const AdminUsers = () => {
-  const users = useSelector((state) => state.users.users);
+  const { users, listStatus } = useSelector((state) => state.users);
+
   return (
     <>
       <div className='max-w-5xl text-2xl'>
@@ -19,22 +20,30 @@ export const AdminUsers = () => {
             <div className='grid grid-cols-4'>
               <p>Фамилия</p>
               <p className=''>Имя</p>
-              <p className=''>Логин</p>
+              <p className=''>Почта</p>
               <p className=''>Действия</p>
             </div>
-            {users.map((user) => (
-              <UserControlItem
-                key={user.id}
-                firstName={user.firstName}
-                lastName={user.lastName}
-                userEmail={user.email}
-                id={user.id}
-              />
-            ))}
+
+            {listStatus === 'loading' && <div>Загрузка...</div>}
+
+            {listStatus === 'error' && <div>Ошибка загрузки списка пользователей</div>}
+
+            {listStatus === 'ideal' &&
+              users.map((user) => (
+                <UserControlItem
+                  key={user.id}
+                  firstName={user.firstName}
+                  lastName={user.lastName}
+                  userEmail={user.email}
+                  id={user.id}
+                />
+              ))}
           </>
         )}
         <Link to='/admin'>
-          <Button variant={'secondary'}>Назад</Button>
+          <Button variant={'secondary'} className='mt-10'>
+            Назад
+          </Button>
         </Link>
       </div>
     </>

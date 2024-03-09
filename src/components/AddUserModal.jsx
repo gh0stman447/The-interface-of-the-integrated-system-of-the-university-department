@@ -16,7 +16,7 @@ export const AddUserModal = () => {
   const [inputUser, setInputUser] = useState({
     firstName: '',
     lastName: '',
-    email: '',
+    surName: '',
   });
   const dispatch = useDispatch();
   const addUserHandler = (_inputUser) => {
@@ -24,7 +24,7 @@ export const AddUserModal = () => {
     setInputUser({
       firstName: '',
       lastName: '',
-      email: '',
+      surName: '',
     });
   };
 
@@ -58,11 +58,11 @@ export const AddUserModal = () => {
           </div>
           <div className='grid grid-cols-4 items-center gap-4'>
             <p htmlFor='name' className='text-right'>
-              Фамилия
+              Отчество
             </p>
             <Input
-              value={inputUser.email}
-              onChange={(e) => setInputUser({ ...inputUser, email: e.target.value })}
+              value={inputUser.surName}
+              onChange={(e) => setInputUser({ ...inputUser, surName: e.target.value })}
               className='col-span-3'
             />
           </div>

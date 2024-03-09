@@ -5,10 +5,12 @@ import { useDispatch } from 'react-redux';
 import { assignRole } from '../state/role/roleSlice';
 
 export const Login = () => {
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState('admin');
+
   function onChangeUsernameHandler(event) {
     setUserName(event.target.value);
   }
+
   const dispatch = useDispatch();
 
   return (
@@ -18,7 +20,7 @@ export const Login = () => {
         <form action='#' className=''>
           <div className='flex flex-col'>
             <div className='my-4'>
-              <label htmlFor=''>Username</label>
+              <label>Username</label>
               <input
                 value={userName}
                 onChange={onChangeUsernameHandler}
@@ -29,7 +31,7 @@ export const Login = () => {
               />
             </div>
             <div className='my-4'>
-              <label htmlFor=''>Your Password</label>
+              <label>Your Password</label>
               <input
                 type='password'
                 className='block py-2.5 text-sm bg-transparent border-b-2 border-gray-300 w-[100%] 
