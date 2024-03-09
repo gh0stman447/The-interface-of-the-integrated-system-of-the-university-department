@@ -10,7 +10,7 @@ import { changeUserData } from '../state/users/usersSlice';
 export const EditUser = () => {
   const { id } = useParams();
 
-  const user = useSelector((state) => state.users.users.find((user) => user.id === Number(id)));
+  const user = useSelector((state) => state.users.users.find((user) => user.id == id));
 
   const dispatch = useDispatch();
 
@@ -27,7 +27,7 @@ export const EditUser = () => {
     });
     dispatch(
       changeUserData({
-        id: Number(id),
+        id: id,
         userData: userData,
       }),
     );
@@ -35,7 +35,7 @@ export const EditUser = () => {
 
   return (
     <>
-      <h1 className='text-2xl'>Изменение пользователя {user.firstName}</h1>
+      <h1 className='text-2xl'>Изменение пользователя {user?.firstName}</h1>
       <div className='flex flex-col max-w-screen-lg space-y-6'>
         <div className='flex flex-col gap-y-2 mt-8'>
           <p>Имя</p>

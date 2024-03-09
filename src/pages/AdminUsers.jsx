@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '../components/UI/button';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { AddUserModal } from '../components/AddUserModal';
 import { UserControlItem } from '../components/UserControlItem';
+import { STATUS, getUserListAction } from '../state/users/usersSlice';
 
 export const AdminUsers = () => {
   const { users, listStatus } = useSelector((state) => state.users);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserListAction());
+  }, []);
 
   return (
     <>
@@ -24,11 +31,11 @@ export const AdminUsers = () => {
               <p className=''>Действия</p>
             </div>
 
-            {listStatus === 'loading' && <div>Загрузка...</div>}
+            {listStatus === STATUS.loading && <div>Загрузка...</div>}
 
-            {listStatus === 'error' && <div>Ошибка загрузки списка пользователей</div>}
+            {listStatus === STATUS.error && <div>Ошибка загрузки списка пользователей</div>}
 
-            {listStatus === 'ideal' &&
+            {listStatus === STATUS.ideal &&
               users.map((user) => (
                 <UserControlItem
                   key={user.id}

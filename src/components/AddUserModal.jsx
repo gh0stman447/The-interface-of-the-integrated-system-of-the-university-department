@@ -10,7 +10,7 @@ import {
 import { Button } from './UI/button';
 import { Input } from './UI/input';
 import { useDispatch } from 'react-redux';
-import { addUser } from '../state/users/usersSlice';
+import { postUserAction } from '../state/users/usersSlice';
 
 export const AddUserModal = () => {
   const [inputUser, setInputUser] = useState({
@@ -20,7 +20,7 @@ export const AddUserModal = () => {
   });
   const dispatch = useDispatch();
   const addUserHandler = (_inputUser) => {
-    dispatch(addUser(_inputUser));
+    dispatch(postUserAction(_inputUser));
     setInputUser({
       firstName: '',
       lastName: '',

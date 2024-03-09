@@ -5,9 +5,7 @@ import { useSelector } from 'react-redux';
 
 export const ViewModule = () => {
   const { id } = useParams();
-  const module = useSelector((state) =>
-    state.modules.modules.find((module) => module.id === Number(id)),
-  );
+  const module = useSelector((state) => state.modules.modules.find((module) => module.id == id));
 
   return (
     <div>

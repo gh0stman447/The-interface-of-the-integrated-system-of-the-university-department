@@ -10,9 +10,7 @@ import { changeModuleData } from '../state/modulesNav/modulesNavSlice';
 export const EditModule = () => {
   const { id } = useParams();
 
-  const module = useSelector((state) =>
-    state.modules.modules.find((module) => module.id === Number(id)),
-  );
+  const module = useSelector((state) => state.modules.modules.find((module) => module.id == id));
 
   const dispatch = useDispatch();
 
@@ -24,12 +22,12 @@ export const EditModule = () => {
     toast('Изменения сохранены', {
       action: {
         label: 'Закрыть',
-        onClick: () => { },
+        onClick: () => {},
       },
     });
     dispatch(
       changeModuleData({
-        id: Number(id),
+        id: id,
         moduleData: moduleData,
       }),
     );
