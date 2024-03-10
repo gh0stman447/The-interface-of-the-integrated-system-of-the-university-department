@@ -3,14 +3,10 @@ import { Button } from './UI/button';
 import { useDispatch } from 'react-redux';
 import { deleteModule } from '../state/modulesNav/modulesNavSlice';
 import { Link } from 'react-router-dom';
-import { deleteUser } from '../state/users/usersSlice';
+import { deleteUser, deleteUserAction } from '../state/users/usersSlice';
 
 export const UserControlItem = ({ id, firstName, lastName, userEmail }) => {
   const dispatch = useDispatch();
-
-  const deleteUserHandler = (id) => {
-    dispatch(deleteUser(id));
-  };
 
   return (
     <div className='flex justify-between'>
@@ -29,7 +25,7 @@ export const UserControlItem = ({ id, firstName, lastName, userEmail }) => {
           </Button>
         </Link>
         <Button
-          onClick={() => deleteUserHandler(id)}
+          onClick={() => dispatch(deleteUserAction(id))}
           variant={'secondary'}
           className={'max-w-min justify-self-end'}
         >

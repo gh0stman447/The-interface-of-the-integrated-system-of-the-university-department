@@ -1,78 +1,22 @@
 {
   "users": [
     {
-      "login": "OlegAdmin",
-      "password": "OlegAdmin123",
-      "id": 1,
-      "firstName": "Oleg",
-      "lastName": "Malygin",
-      "surName": "Romanovich",
-      "email": "o_malyin@bk.ru",
-      "phoneNumber": "+7(962)-947-03-25",
-      "role": "admin"
+      "name": "Lena123",
+      "id": "2"
     },
     {
-      "login": "User2",
-      "password": "User2",
-      "id": 2,
-      "firstName": "User 2",
-      "lastName": "Userov 2",
-      "surName": "Userovich 2",
-      "email": "User2@bk.ru",
-      "phoneNumber": "+7(999)-999-99-99"
+      "id": "3"
     },
     {
-      "login": "User3",
-      "password": "User3",
-      "id": 3,
-      "firstName": "User 3",
-      "lastName": "Userov 3",
-      "surName": "Userovich 3",
-      "email": "User3@bk.ru",
-      "phoneNumber": "+7(999)-999-99-98"
-    },
-    {
-      "login": "User4",
-      "password": "User4",
-      "id": 4,
-      "firstName": "User 4",
-      "lastName": "Userov 4",
-      "surName": "Userovich 4",
-      "email": "User4@bk.ru",
-      "phoneNumber": "+7(999)-999-99-97"
-    },
-    {
-      "id": "be29",
-      "login": "",
-      "password": "",
-      "email": "",
-      "phoneNumber": "",
-      "role": "user",
-      "firstName": "1",
-      "lastName": "1",
-      "surName": "1"
-    },
-    {
-      "id": "c077",
-      "login": "",
-      "password": "",
-      "email": "",
-      "phoneNumber": "",
-      "role": "user",
-      "firstName": "123213",
-      "lastName": "213213",
-      "surName": "123213"
-    },
-    {
-      "id": "51e1",
+      "id": "a860",
       "login": "",
       "password": "",
       "email": "",
       "phoneNumber": "",
       "role": "user",
       "firstName": "123",
-      "lastName": "213",
-      "surName": "213"
+      "lastName": "123",
+      "surName": "12321"
     }
   ]
 }

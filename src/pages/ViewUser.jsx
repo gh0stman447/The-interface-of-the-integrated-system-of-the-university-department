@@ -6,12 +6,11 @@ import { useSelector } from 'react-redux';
 export const ViewUser = () => {
   const { id } = useParams();
   const user = useSelector((state) => state.users.users.find((user) => user.id == id));
-
   return (
     <div>
-      <h1 className='text-2xl mb-8'>Информация о пользователе {user.firstName}</h1>
+      <h1 className='text-2xl mb-8'>Информация о пользователе {user?.firstName}</h1>
       <div className='flex flex-col gap-y-4'>
-        <p>Имя: {user.firstName}</p>
+        <p>Имя: {user?.firstName}</p>
         <p>Фамилия: {user.lastName}</p>
         <p>Отчество: {user.surName}</p>
         <p>Почта: {user.email}</p>

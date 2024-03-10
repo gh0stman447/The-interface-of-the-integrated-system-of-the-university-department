@@ -1,15 +1,20 @@
 import httpService from '../HttpService';
 import ApiConfig from '../ApiConfig';
 
-export const getUserList = async () => {
+export const getUserListApi = async () => {
   return await httpService.get(ApiConfig.users);
 };
 
-export const postUser = async (data) => {
+export const postUserApi = async (data) => {
   return await httpService.post(ApiConfig.users, data);
 };
 
-export const deleteUser = async (id) => {
+export const deleteUserApi = async (id) => {
   const url = `${ApiConfig.users}/${id}`;
-  return await httpService.delete(url);
+  await httpService.delete(url);
+};
+
+export const putUserApi = async (id) => {
+  const url = `${ApiConfig.users}/${id}`;
+  await httpService.put(url);
 };

@@ -1,4 +1,10 @@
-import { getUserList, postUser } from '../../../src/services/User/UserService';
+import {
+  deleteUserApi,
+  getUserList,
+  getUserListApi,
+  postUser,
+  postUserApi,
+} from '../../../src/services/User/UserService';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const STATUS = {
@@ -15,7 +21,7 @@ const initialState = {
 };
 
 export const getUserListAction = createAsyncThunk('user/getUserListAction', async () => {
-  const response = await getUserList();
+  const response = await getUserListApi();
   return response.data;
 });
 
@@ -30,21 +36,21 @@ export const postUserAction = createAsyncThunk(
       email: '',
       phoneNumber: '',
       role: 'user',
-      firstName: firstName,
-      lastName: lastName,
-      surName: surName,
+      firstName,
+      lastName,
+      surName,
     };
 
-    await postUser(newUser);
+    await postUserApi(newUser);
     dispatch(getUserListAction());
   },
 );
 
 export const deleteUserAction = createAsyncThunk(
   'user/deleteUserAction',
-  async (/**payload, { dispatch } */) => {
-    // await deleteUser(payload.id);
-    // dispatch(getUserListAction());
+  async (id, { dispatch }) => {
+    await deleteUserApi(id);
+    return id;
   },
 );
 
@@ -52,37 +58,10 @@ const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
-    changeUser: (state, action) => {
-      const { id, user } = action.payload;
-      const indexToReplace = state.users.findIndex((user) => user.id === id);
-      if (indexToReplace === -1) return;
-      state.users[indexToReplace] = {
-        ...state.users[indexToReplace],
-        ...user,
-      };
-    },
-
-    deleteUser: (state, action) => {
-      state.users = state.users.filter((user) => user.id !== action.payload);
-    },
-
     changeUserData: (state, action) => {
       const { id, userData } = action.payload;
       const indexToReplace = state.users.findIndex((item) => item.id === id);
       state.users[indexToReplace] = userData;
-    },
-
-    addUser: (state, action) => {
-      const { firstName, lastName, surName } = action.payload;
-
-      const newUser = {
-        id: state.users.length + 1,
-        firstName: firstName,
-        lastName: lastName,
-        surName: surName,
-      };
-
-      state.users.push(newUser);
     },
   },
 
@@ -98,6 +77,11 @@ const usersSlice = createSlice({
 
     builder.addCase(getUserListAction.rejected, (state) => {
       state.listStatus = STATUS.error;
+    });
+
+    builder.addCase(deleteUserAction.fulfilled, (state, action) => {
+      const filteredList = state.users.filter((user) => user.id !== action.payload);
+      state.users = filteredList;
     });
   },
 });
