@@ -18,6 +18,7 @@ export const AddUserModal = () => {
     lastName: '',
     surName: '',
   });
+  
   const dispatch = useDispatch();
   const addUserHandler = (_inputUser) => {
     dispatch(postUserAction(_inputUser));

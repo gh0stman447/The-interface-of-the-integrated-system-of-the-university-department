@@ -14,7 +14,7 @@ export const deleteUserApi = async (id) => {
   await httpService.delete(url);
 };
 
-export const putUserApi = async (id) => {
+export const putUserApi = async (id, data) => {
   const url = `${ApiConfig.users}/${id}`;
-  await httpService.put(url);
+  await httpService.put(url, data);
 };

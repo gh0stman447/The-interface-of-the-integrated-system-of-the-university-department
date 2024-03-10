@@ -73,6 +73,7 @@ const modulesSlice = createSlice({
       };
       state.modules.push(newModule);
     },
+    
     changeModuleData: (state, action) => {
       const { id, moduleData } = action.payload;
       const indexToReplace = state.modules.findIndex((item) => item.id === id);

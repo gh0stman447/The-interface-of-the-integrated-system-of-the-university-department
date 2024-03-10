@@ -1,22 +1,15 @@
 {
   "users": [
     {
-      "name": "Lena123",
-      "id": "2"
-    },
-    {
-      "id": "3"
-    },
-    {
-      "id": "a860",
-      "login": "",
-      "password": "",
-      "email": "",
+      "id": "d397",
+      "login": "1333",
+      "password": "123",
+      "email": "222241231313",
       "phoneNumber": "",
       "role": "user",
-      "firstName": "123",
-      "lastName": "123",
-      "surName": "12321"
+      "firstName": "Олег",
+      "lastName": "Малыгин",
+      "surName": "Романович"
     }
   ]
 }

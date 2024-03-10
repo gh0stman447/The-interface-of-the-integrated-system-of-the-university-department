@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Input } from '../components/UI/input';
 import { Toaster } from '../components/UI/sonner';
 import { toast } from 'sonner';
-import { changeUserData } from '../state/users/usersSlice';
+import { updateUserAction } from '../state/users/usersSlice';
 
 export const EditUser = () => {
   const { id } = useParams();
@@ -26,7 +26,7 @@ export const EditUser = () => {
       },
     });
     dispatch(
-      changeUserData({
+      updateUserAction({
         id: id,
         userData: userData,
       }),

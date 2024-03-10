@@ -1,10 +1,10 @@
 import {
   deleteUserApi,
-  getUserList,
   getUserListApi,
-  postUser,
   postUserApi,
+  putUserApi,
 } from '../../../src/services/User/UserService';
+
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const STATUS = {
@@ -50,20 +50,22 @@ export const deleteUserAction = createAsyncThunk(
   'user/deleteUserAction',
   async (id, { dispatch }) => {
     await deleteUserApi(id);
-    return id;
+    dispatch(getUserListAction());
+  },
+);
+
+export const updateUserAction = createAsyncThunk(
+  'user/updateUserAction',
+  async ({ id, userData }, { dispatch }) => {
+    await putUserApi(id, userData);
+    dispatch(getUserListAction());
   },
 );
 
 const usersSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {
-    changeUserData: (state, action) => {
-      const { id, userData } = action.payload;
-      const indexToReplace = state.users.findIndex((item) => item.id === id);
-      state.users[indexToReplace] = userData;
-    },
-  },
+  reducers: {},
 
   extraReducers: (builder) => {
     builder.addCase(getUserListAction.pending, (state) => {
@@ -77,11 +79,6 @@ const usersSlice = createSlice({
 
     builder.addCase(getUserListAction.rejected, (state) => {
       state.listStatus = STATUS.error;
-    });
-
-    builder.addCase(deleteUserAction.fulfilled, (state, action) => {
-      const filteredList = state.users.filter((user) => user.id !== action.payload);
-      state.users = filteredList;
     });
   },
 });
