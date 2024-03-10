@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button } from './UI/button';
 import { useDispatch } from 'react-redux';
-import { deleteModule } from '../state/modulesNav/modulesNavSlice';
+import { deleteModule, deleteModuleAction } from '../state/modulesNav/modulesNavSlice';
 import { Link } from 'react-router-dom';
 
 export const ModuleControlItem = ({ id, moduleName }) => {
   const dispatch = useDispatch();
 
   const deleteModuleHandler = (id) => {
-    dispatch(deleteModule(id));
+    dispatch(deleteModuleAction(id));
   };
 
   return (

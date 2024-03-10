@@ -6,17 +6,15 @@ import { useEffect } from 'react';
 export const TheNav = () => {
   const navItems = useSelector((state) => state.modules.modules);
 
-  
-
   return (
     <nav className='overflow-auto'>
-      {navItems.map(({ label, id }) => (
+      {navItems.map(({ title, id }) => (
         <NavItem
-          key={label}
-          icon={id > itemsDict.size ? itemsDict.get(itemsDict.size) : itemsDict.get(id)}
+          key={title}
+          // icon={id > itemsDict.size ? itemsDict.get(itemsDict.size) : itemsDict.get(id)}
           id={id}
         >
-          {label}
+          {title}
         </NavItem>
       ))}
     </nav>

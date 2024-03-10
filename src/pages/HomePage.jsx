@@ -6,6 +6,7 @@ import { TheSideBarOverlay } from '../components/TheSideBarOverlay';
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { getModuleListAction } from '../state/modulesNav/modulesNavSlice';
+import { getUserListAction } from '../state/users/usersSlice';
 
 export const HomePage = () => {
   const contentWrapperRef = useRef(null);
@@ -24,6 +25,7 @@ export const HomePage = () => {
 
   useEffect(() => {
     dispatch(getModuleListAction());
+    dispatch(getUserListAction());
   }, []);
 
   useEffect(() => {

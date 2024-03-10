@@ -6,13 +6,16 @@ import { Link } from 'react-router-dom';
 import { AddModuleModal } from '../components/AddModuleModal';
 import { getModuleListAction } from '../state/modulesNav/modulesNavSlice';
 import { STATUS } from '../constants/status';
+import { AppLoader } from '../components/UI/loader';
 
 export const AdminModules = () => {
   const { listStatus, modules } = useSelector((state) => state.modules);
 
+  if (listStatus === STATUS.loading) return <AppLoader />;
+
   return (
     <div className='max-w-4xl text-2xl'>
-      <h1>Панель администратора - МОДУЛИ</h1>
+      <h1>Панель администратора - Модули</h1>
 
       <AddModuleModal />
 
@@ -25,13 +28,11 @@ export const AdminModules = () => {
             <p className=''>Действия</p>
           </div>
 
-          {listStatus === STATUS.loading && <div>Загрузка...</div>}
-
           {listStatus === STATUS.error && <div>Ошибка загрузки списка пользователей</div>}
 
           {listStatus === STATUS.ideal &&
             modules.map((module) => (
-              <ModuleControlItem key={module.id} moduleName={module.label} id={module.id} />
+              <ModuleControlItem key={module.id} moduleName={module.title} id={module.id} />
             ))}
         </>
       )}

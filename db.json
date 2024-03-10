@@ -1,40 +1,29 @@
 {
   "users": [
     {
-      "id": "d397",
-      "login": "1333",
-      "password": "123",
-      "email": "222241231313",
+      "id": "6b1e",
+      "login": "",
+      "password": "",
+      "email": "",
       "phoneNumber": "",
       "role": "user",
-      "firstName": "Олег",
-      "lastName": "Малыгин",
-      "surName": "Романович"
-    },
-    {
-      "id": "3182",
-      "login": "1",
-      "password": "1",
-      "email": "21321321",
-      "phoneNumber": "",
-      "role": "user",
-      "firstName": "123121",
-      "lastName": "1232",
-      "surName": "13"
+      "firstName": "213",
+      "lastName": "123213",
+      "surName": "1232"
     }
   ],
   "modules": [
     {
-      "id": "1",
-      "label": "Модуль по управлению организацией учебной деятельности",
-      "description": "Я модуль",
+      "id": "68bf",
+      "title": "21312wqdwqwqdwqqwdwqqw",
+      "description": "12321wqdwqdqwdwqd",
       "seoTitle": "",
       "seoDescription": ""
     },
     {
-      "id": "2",
-      "label": "Модуль 2",
-      "description": "Я модуль",
+      "id": "bd1b",
+      "title": "21321",
+      "description": "2132",
       "seoTitle": "",
       "seoDescription": ""
     }

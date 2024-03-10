@@ -6,15 +6,12 @@ import { AddUserModal } from '../components/AddUserModal';
 import { UserControlItem } from '../components/UserControlItem';
 import { getUserListAction } from '../state/users/usersSlice';
 import { STATUS } from '../constants/status';
+import { AppLoader } from '../components/UI/loader';
 
 export const AdminUsers = () => {
   const { users, listStatus } = useSelector((state) => state.users);
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getUserListAction());
-  }, []);
+  if (listStatus === STATUS.loading) return <AppLoader />;
 
   return (
     <>
@@ -31,8 +28,6 @@ export const AdminUsers = () => {
               <p className=''>Почта</p>
               <p className=''>Действия</p>
             </div>
-
-            {listStatus === STATUS.loading && <div>Загрузка...</div>}
 
             {listStatus === STATUS.error && <div>Ошибка загрузки списка пользователей</div>}
 

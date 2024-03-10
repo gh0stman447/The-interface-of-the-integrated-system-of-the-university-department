@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button } from '../components/UI/button';
 import { useDispatch, useSelector } from 'react-redux';
 import { Input } from '../components/UI/input';
 import { Toaster } from '../components/UI/sonner';
 import { toast } from 'sonner';
-import { changeModuleData } from '../state/modulesNav/modulesNavSlice';
+import { changeModuleData, updateModuleAction } from '../state/modulesNav/modulesNavSlice';
+import { AppLoader } from '../components/UI/loader';
 
 export const EditModule = () => {
   const { id } = useParams();
@@ -17,6 +18,12 @@ export const EditModule = () => {
     ...module,
   });
 
+  useEffect(() => {
+    setModuleData({
+      ...module,
+    });
+  }, [module]);
+
   const saveModuleHandler = (moduleData) => {
     toast('Изменения сохранены', {
       action: {
@@ -25,22 +32,24 @@ export const EditModule = () => {
       },
     });
     dispatch(
-      changeModuleData({
+      updateModuleAction({
         id: id,
         moduleData: moduleData,
       }),
     );
   };
 
+  if (!module) return <AppLoader />;
+
   return (
     <>
-      <h1 className='text-2xl'>Изменение модуля "{module.label}"</h1>
+      <h1 className='text-2xl'>Изменение модуля "{module.title}"</h1>
       <div className='flex flex-col max-w-screen-lg space-y-6'>
         <div className='flex flex-col gap-y-2 mt-8'>
           <p>Название модуля</p>
           <Input
-            value={moduleData.label}
-            onChange={(e) => setModuleData({ ...moduleData, label: e.target.value })}
+            value={moduleData.title}
+            onChange={(e) => setModuleData({ ...moduleData, title: e.target.value })}
           />
         </div>
         <div className='flex flex-col gap-y-2'>

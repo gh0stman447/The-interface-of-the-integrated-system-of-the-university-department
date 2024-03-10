@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button } from '../components/UI/button';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,6 +6,7 @@ import { Input } from '../components/UI/input';
 import { Toaster } from '../components/UI/sonner';
 import { toast } from 'sonner';
 import { updateUserAction } from '../state/users/usersSlice';
+import { AppLoader } from '../components/UI/loader';
 
 export const EditUser = () => {
   const { id } = useParams();
@@ -32,6 +33,14 @@ export const EditUser = () => {
       }),
     );
   };
+  
+  useEffect(() => {
+    setUserData({
+      ...user,
+    });
+  }, [user]);
+
+  if (!user) return <AppLoader />;
 
   return (
     <>
