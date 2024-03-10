@@ -4,6 +4,8 @@ import { TheHeader } from '../components/TheHeader';
 import { TheMain } from '../components/TheMain';
 import { TheSideBarOverlay } from '../components/TheSideBarOverlay';
 import { useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { getModuleListAction } from '../state/modulesNav/modulesNavSlice';
 
 export const HomePage = () => {
   const contentWrapperRef = useRef(null);
@@ -18,6 +20,11 @@ export const HomePage = () => {
     event.preventDefault();
     event.stopPropagation();
   }
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getModuleListAction());
+  }, []);
 
   useEffect(() => {
     const contentWrapper = contentWrapperRef.current;

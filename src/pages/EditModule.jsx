@@ -9,7 +9,6 @@ import { changeModuleData } from '../state/modulesNav/modulesNavSlice';
 
 export const EditModule = () => {
   const { id } = useParams();
-
   const module = useSelector((state) => state.modules.modules.find((module) => module.id == id));
 
   const dispatch = useDispatch();

@@ -10,6 +10,33 @@
       "firstName": "Олег",
       "lastName": "Малыгин",
       "surName": "Романович"
+    },
+    {
+      "id": "3182",
+      "login": "1",
+      "password": "1",
+      "email": "21321321",
+      "phoneNumber": "",
+      "role": "user",
+      "firstName": "123121",
+      "lastName": "1232",
+      "surName": "13"
+    }
+  ],
+  "modules": [
+    {
+      "id": "1",
+      "label": "Модуль по управлению организацией учебной деятельности",
+      "description": "Я модуль",
+      "seoTitle": "",
+      "seoDescription": ""
+    },
+    {
+      "id": "2",
+      "label": "Модуль 2",
+      "description": "Я модуль",
+      "seoTitle": "",
+      "seoDescription": ""
     }
   ]
 }

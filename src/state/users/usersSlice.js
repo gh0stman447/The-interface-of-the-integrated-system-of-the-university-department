@@ -1,3 +1,4 @@
+import { STATUS } from '../../constants/status';
 import {
   deleteUserApi,
   getUserListApi,
@@ -6,13 +7,6 @@ import {
 } from '../../../src/services/User/UserService';
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-
-export const STATUS = {
-  ideal: 'ideal',
-  error: 'error',
-  loading: 'loading',
-  success: 'success',
-};
 
 const initialState = {
   users: [],

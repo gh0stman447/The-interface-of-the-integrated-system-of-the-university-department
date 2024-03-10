@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddUserModal } from '../components/AddUserModal';
 import { UserControlItem } from '../components/UserControlItem';
-import { STATUS, getUserListAction } from '../state/users/usersSlice';
+import { getUserListAction } from '../state/users/usersSlice';
+import { STATUS } from '../constants/status';
 
 export const AdminUsers = () => {
   const { users, listStatus } = useSelector((state) => state.users);

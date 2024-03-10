@@ -1,54 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { Stethoscope } from 'lucide-react';
-import { CiHeart, CiHome, CiSearch } from 'react-icons/ci';
+import { STATUS } from '../../constants/status';
+import { getModuleListApi } from '../../services/modules/ModulesService';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { GiBookshelf } from 'react-icons/gi';
-import { GoPlus } from 'react-icons/go';
 import { HiAcademicCap } from 'react-icons/hi2';
 import { IoBookSharp } from 'react-icons/io5';
 
 const initialState = {
-  modules: [
-    {
-      id: 1,
-      label: 'Модуль по управлению организацией учебной деятельности',
-      isActive: false,
-      description: 'Я модуль',
-      seoTitle: '',
-      seoDescription: '',
-    },
-    {
-      id: 2,
-      label: 'Модуль по управлению научными работами',
-      isActive: false,
-      description: 'Я модуль',
-      seoTitle: '',
-      seoDescription: '',
-    },
-    {
-      id: 3,
-      label: 'Модуль по управлению методическими работами',
-      isActive: false,
-      description: 'Я модуль',
-      seoTitle: '',
-      seoDescription: '',
-    },
-    {
-      id: 4,
-      label: 'Модуль 4',
-      isActive: false,
-      description: 'Я модуль',
-      seoTitle: '',
-      seoDescription: '',
-    },
-    {
-      id: 5,
-      label: 'Модуль 5',
-      isActive: false,
-      description: 'Я модуль',
-      seoTitle: '',
-      seoDescription: '',
-    },
-  ],
+  modules: [],
+  listStatus: STATUS.ideal,
 };
 
 export const itemsDict = new Map([
@@ -56,6 +15,11 @@ export const itemsDict = new Map([
   [2, <HiAcademicCap className='h-8 w-8' />],
   [3, <GiBookshelf className='h-8 w-8' />],
 ]);
+
+export const getModuleListAction = createAsyncThunk('module/getModuleListAction', async () => {
+  const response = await getModuleListApi();
+  return response.data;
+});
 
 const modulesSlice = createSlice({
   name: 'modules',
@@ -73,12 +37,23 @@ const modulesSlice = createSlice({
       };
       state.modules.push(newModule);
     },
-    
+
     changeModuleData: (state, action) => {
       const { id, moduleData } = action.payload;
-      const indexToReplace = state.modules.findIndex((item) => item.id === id);
+      const indexToReplace = state.modules.findIndex((item) => item.id == id);
       state.modules[indexToReplace] = moduleData;
     },
+  },
+
+  extraReducers: (builder) => {
+    builder.addCase(getModuleListAction.fulfilled, (state, action) => {
+      state.listStatus = STATUS.ideal;
+      state.modules = action.payload;
+    });
+
+    builder.addCase(getModuleListAction.pending, (state) => {
+      state.listStatus = STATUS.loading;
+    });
   },
 });
 

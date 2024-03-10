@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-export const NavItem = ({ icon, children: label, id, isActive }) => {
+export const NavItem = ({ icon, children: label, id }) => {
   const role = useSelector((state) => state.role.role);
 
   const itemClasses = {
@@ -14,8 +14,7 @@ export const NavItem = ({ icon, children: label, id, isActive }) => {
     <NavLink
       style={{ pointerEvents: role.toLowerCase() === 'admin' ? 'none' : 'auto' }}
       to={`/module/${id}`}
-      className={isActive ? itemClasses.isActive : itemClasses.notIsActive}
-      onClick={(isActive) => (isActive ? itemClasses.isActive : itemClasses.notIsActive)}
+      className={({ isActive }) => (isActive ? itemClasses.isActive : itemClasses.notIsActive)}
     >
       <span>{icon}</span>
       <span className='ml-4 text-sm font-semibold'>{label}</span>
