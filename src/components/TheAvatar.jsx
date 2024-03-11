@@ -2,29 +2,31 @@ import React, { useEffect, useRef, useState } from 'react';
 import { TheContextMenu } from './TheContextMenu';
 import { Person } from './Icons/Person';
 import { useSelector } from 'react-redux';
+import { menuOptions } from '../constants/menuOptions';
 
 const clickPosition = { x: null, y: null };
 
 const menuUserItems = [
   {
-    label: 'Мой профиль',
+    label: menuOptions.profile,
   },
   {
-    label: 'Выйти',
+    label: menuOptions.exit,
   },
 ];
 
 const menuAdminItems = [
   {
-    label: 'Мой профиль',
+    label: menuOptions.profile,
   },
   {
-    label: 'Админ панель',
+    label: menuOptions.adminPanel,
   },
   {
-    label: 'Выйти',
+    label: menuOptions.exit,
   },
 ];
+
 export const TheAvatar = ({ toggleScrolling }) => {
   const role = useSelector((state) => state.role.role);
 

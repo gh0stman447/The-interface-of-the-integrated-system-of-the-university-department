@@ -10,22 +10,29 @@
       "firstName": "213",
       "lastName": "123213",
       "surName": "1232"
-    }
-  ],
-  "modules": [
-    {
-      "id": "68bf",
-      "title": "21312wqdwqwqdwqqwdwqqw",
-      "description": "12321wqdwqdqwdwqd",
-      "seoTitle": "",
-      "seoDescription": ""
     },
     {
-      "id": "bd1b",
-      "title": "21321",
-      "description": "2132",
-      "seoTitle": "",
-      "seoDescription": ""
+      "id": "88ed",
+      "login": "",
+      "password": "",
+      "email": "",
+      "phoneNumber": "",
+      "role": "user",
+      "firstName": "32132121",
+      "lastName": "12321",
+      "surName": "213"
+    },
+    {
+      "id": "88ed",
+      "login": "admin",
+      "password": "111",
+      "email": "",
+      "phoneNumber": "",
+      "role": "admin",
+      "firstName": "32132121",
+      "lastName": "12321",
+      "surName": "213"
     }
-  ]
+  ],
+  "modules": []
 }

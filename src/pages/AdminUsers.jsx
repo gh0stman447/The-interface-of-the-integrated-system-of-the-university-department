@@ -9,16 +9,19 @@ import { STATUS } from '../constants/status';
 import { AppLoader } from '../components/UI/loader';
 
 export const AdminUsers = () => {
-  const { users, listStatus } = useSelector((state) => state.users);
+  const { users, status, error } = useSelector((state) => state.users);
 
-  if (listStatus === STATUS.loading) return <AppLoader />;
+  if (status === STATUS.loading) return <AppLoader />;
 
   return (
     <>
       <div className='max-w-5xl text-2xl'>
         <h1>Панель администратора - Пользователи</h1>
+
         <AddUserModal />
-        {users.length === 0 ? (
+        {error ? (
+          <div>Ошибка на стороне сервера: {error}</div>
+        ) : users.length === 0 ? (
           <div className='text-3xl mb-4'>Нет пользователей</div>
         ) : (
           <>
@@ -29,9 +32,7 @@ export const AdminUsers = () => {
               <p className=''>Действия</p>
             </div>
 
-            {listStatus === STATUS.error && <div>Ошибка загрузки списка пользователей</div>}
-
-            {listStatus === STATUS.ideal &&
+            {status === STATUS.success &&
               users.map((user) => (
                 <UserControlItem
                   key={user.id}
@@ -43,6 +44,7 @@ export const AdminUsers = () => {
               ))}
           </>
         )}
+
         <Link to='/admin'>
           <Button variant={'secondary'} className='mt-10'>
             Назад

@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const ROLES = {
+  admin: 'admin',
+  user: 'user',
+};
+
 const initialState = {
   role: 'user',
 };
@@ -9,7 +14,7 @@ const roleSlice = createSlice({
   initialState,
   reducers: {
     assignRole: (state, action) => {
-      state.role = action.payload;
+      action.payload === ROLES.admin ? (state.role = ROLES.admin) : (state.role = ROLES.user);
     },
   },
 });

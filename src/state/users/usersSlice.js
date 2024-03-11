@@ -11,13 +11,25 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const initialState = {
   users: [],
   currentUser: null,
-  listStatus: STATUS.ideal,
+  status: null,
+  error: null,
 };
 
-export const getUserListAction = createAsyncThunk('user/getUserListAction', async () => {
-  const response = await getUserListApi();
-  return response.data;
-});
+export const getUserListAction = createAsyncThunk(
+  'user/getUserListAction',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await getUserListApi();
+      if (response.status !== 200) {
+        throw new Error('ServerError!');
+      }
+      
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
 
 export const postUserAction = createAsyncThunk(
   'user/postUserAction',
@@ -62,17 +74,18 @@ const usersSlice = createSlice({
   reducers: {},
 
   extraReducers: (builder) => {
-    builder.addCase(getUserListAction.pending, (state) => {
-      state.listStatus = STATUS.loading;
-    });
-
     builder.addCase(getUserListAction.fulfilled, (state, action) => {
-      state.listStatus = STATUS.ideal;
+      state.status = STATUS.success;
       state.users = action.payload;
     });
 
-    builder.addCase(getUserListAction.rejected, (state) => {
-      state.listStatus = STATUS.error;
+    builder.addCase(getUserListAction.pending, (state) => {
+      state.status = STATUS.loading;
+    });
+
+    builder.addCase(getUserListAction.rejected, (state, action) => {
+      state.status = STATUS.error;
+      state.error = action.payload;
     });
   },
 });

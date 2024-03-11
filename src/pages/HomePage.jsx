@@ -5,7 +5,7 @@ import { TheMain } from '../components/TheMain';
 import { TheSideBarOverlay } from '../components/TheSideBarOverlay';
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { getModuleListAction } from '../state/modulesNav/modulesNavSlice';
+import { getModuleListAction } from '../state/modulesNav/modulesSlice';
 import { getUserListAction } from '../state/users/usersSlice';
 
 export const HomePage = () => {
@@ -21,6 +21,7 @@ export const HomePage = () => {
     event.preventDefault();
     event.stopPropagation();
   }
+  
   const dispatch = useDispatch();
 
   useEffect(() => {

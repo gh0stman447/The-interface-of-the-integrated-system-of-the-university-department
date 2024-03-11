@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { menuOptions } from '../constants/menuOptions';
 
 export const TheContextMenuItem = ({ children: label, onClick: closeContextMenu }) => {
   const navigate = useNavigate();
@@ -6,12 +7,12 @@ export const TheContextMenuItem = ({ children: label, onClick: closeContextMenu 
   const handleClick = () => {
     closeContextMenu();
 
-    if (label.toLowerCase() === 'выйти') {
+    if (label.toLowerCase() === menuOptions.exit.toLocaleLowerCase()) {
       navigate('/auth');
-    } else if (label.toLowerCase() === 'админ панель') {
+    } else if (label.toLowerCase() === menuOptions.adminPanel.toLocaleLowerCase()) {
       navigate('/admin');
-    } else if (label.toLowerCase() === 'мой профиль') {
-      navigate('/profile');
+    } else if (label.toLowerCase() === menuOptions.profile.toLocaleLowerCase()) {
+      navigate('/profile/');
     }
   };
 

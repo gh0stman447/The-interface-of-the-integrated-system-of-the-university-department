@@ -9,7 +9,7 @@ import {
 } from './UI/dialog';
 import { Button } from './UI/button';
 import { Input } from './UI/input';
-import { addModule, postModuleAction } from '../state/modulesNav/modulesNavSlice';
+import { addModule, postModuleAction } from '../state/modulesNav/modulesSlice';
 import { useDispatch } from 'react-redux';
 
 export const AddModuleModal = () => {

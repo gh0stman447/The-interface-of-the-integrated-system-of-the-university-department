@@ -5,11 +5,10 @@ import { useDispatch } from 'react-redux';
 import { assignRole } from '../state/role/roleSlice';
 
 export const Login = () => {
-  const [userName, setUserName] = useState('admin');
-
-  function onChangeUsernameHandler(event) {
-    setUserName(event.target.value);
-  }
+  const [user, setUser] = useState({
+    userName: '',
+    password: '',
+  });
 
   const dispatch = useDispatch();
 
@@ -22,8 +21,8 @@ export const Login = () => {
             <div className='my-4'>
               <label>Username</label>
               <input
-                value={userName}
-                onChange={onChangeUsernameHandler}
+                value={user.userName}
+                onChange={(event) => setUser({ ...user, userName: event.target.value })}
                 type='text'
                 className='block py-2.5 text-sm bg-transparent border-b-2 border-gray-300 w-[100%] 
               dark:focus:border-blue-500 focus:outline-none rounded-md px-2'
@@ -33,6 +32,8 @@ export const Login = () => {
             <div className='my-4'>
               <label>Your Password</label>
               <input
+                value={user.password}
+                onChange={(event) => setUser({ ...user, password: event.target.value })}
                 type='password'
                 className='block py-2.5 text-sm bg-transparent border-b-2 border-gray-300 w-[100%] 
                 dark:focus:border-blue-500 focus:outline-none rounded-md px-2'
@@ -41,7 +42,9 @@ export const Login = () => {
           </div>
           <div className='flex justify-center mt-4'>
             <Link to='/'>
-              <TheButtonLogin onClick={() => dispatch(assignRole(userName.toLocaleLowerCase()))} />
+              <TheButtonLogin
+                onClick={() => dispatch(assignRole(user.userName.toLocaleLowerCase()))}
+              />
             </Link>
           </div>
         </form>

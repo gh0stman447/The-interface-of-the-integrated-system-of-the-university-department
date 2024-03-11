@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from './UI/button';
 import { useDispatch } from 'react-redux';
-import { deleteModule } from '../state/modulesNav/modulesNavSlice';
+import { deleteModule } from '../state/modulesNav/modulesSlice';
 import { Link } from 'react-router-dom';
 import { deleteUser, deleteUserAction } from '../state/users/usersSlice';
 

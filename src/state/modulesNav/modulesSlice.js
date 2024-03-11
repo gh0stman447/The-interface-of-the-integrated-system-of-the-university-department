@@ -12,7 +12,8 @@ import { IoBookSharp } from 'react-icons/io5';
 
 const initialState = {
   modules: [],
-  listStatus: STATUS.ideal,
+  status: null,
+  error: null,
 };
 
 // export const itemsDict = new Map([
@@ -21,10 +22,21 @@ const initialState = {
 //   [3, <GiBookshelf className='h-8 w-8' />],
 // ]);
 
-export const getModuleListAction = createAsyncThunk('module/getModuleListAction', async () => {
-  const response = await getModuleListApi();
-  return response.data;
-});
+export const getModuleListAction = createAsyncThunk(
+  'module/getModuleListAction',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await getModuleListApi();
+      if (response.status !== 200) {
+        throw new Error('ServerError!');
+      }
+
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
 
 export const postModuleAction = createAsyncThunk(
   'module/postModuleListAction',
@@ -61,22 +73,21 @@ export const updateModuleAction = createAsyncThunk(
 const modulesSlice = createSlice({
   name: 'modules',
   initialState,
-  reducers: {
-    changeModuleData: (state, action) => {
-      const { id, moduleData } = action.payload;
-      const indexToReplace = state.modules.findIndex((item) => item.id == id);
-      state.modules[indexToReplace] = moduleData;
-    },
-  },
+  reducers: {},
 
   extraReducers: (builder) => {
     builder.addCase(getModuleListAction.fulfilled, (state, action) => {
-      state.listStatus = STATUS.ideal;
+      state.status = STATUS.success;
       state.modules = action.payload;
     });
 
     builder.addCase(getModuleListAction.pending, (state) => {
-      state.listStatus = STATUS.loading;
+      state.status = STATUS.loading;
+    });
+
+    builder.addCase(getModuleListAction.rejected, (state, action) => {
+      state.status = STATUS.error;
+      state.error = action.payload;
     });
   },
 });

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Input } from '../components/UI/input';
 import { Toaster } from '../components/UI/sonner';
 import { toast } from 'sonner';
-import { changeModuleData, updateModuleAction } from '../state/modulesNav/modulesNavSlice';
+import { changeModuleData, updateModuleAction } from '../state/modulesNav/modulesSlice';
 import { AppLoader } from '../components/UI/loader';
 
 export const EditModule = () => {

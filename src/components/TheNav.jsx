@@ -1,10 +1,14 @@
 import { NavItem } from './NavItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { getModuleListAction, itemsDict } from '../state/modulesNav/modulesNavSlice';
+import { getModuleListAction, itemsDict } from '../state/modulesNav/modulesSlice';
 import { useEffect } from 'react';
+import { AppLoader } from './UI/loader';
+import { STATUS } from '../constants/status';
 
 export const TheNav = () => {
   const navItems = useSelector((state) => state.modules.modules);
+
+  if (navItems.status === STATUS.loading) return <AppLoader />;
 
   return (
     <nav className='overflow-auto'>

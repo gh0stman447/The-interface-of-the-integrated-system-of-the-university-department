@@ -26,7 +26,7 @@ const routes = [
         element: <Admin />,
       },
       {
-        path: '/profile',
+        path: '/profile/:id',
         element: <Profile />,
       },
       {
