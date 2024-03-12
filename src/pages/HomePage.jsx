@@ -6,7 +6,8 @@ import { TheSideBarOverlay } from '../components/TheSideBarOverlay';
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { getModuleListAction } from '../state/modulesNav/modulesSlice';
-import { getUserListAction } from '../state/users/usersSlice';
+import { assignCurrentUser, getUserListAction } from '../state/users/usersSlice';
+import { assignRole } from '../state/role/roleSlice';
 
 export const HomePage = () => {
   const contentWrapperRef = useRef(null);
@@ -21,7 +22,7 @@ export const HomePage = () => {
     event.preventDefault();
     event.stopPropagation();
   }
-  
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,7 +36,13 @@ export const HomePage = () => {
     contentWrapper.addEventListener('wheel', handleScrolling);
 
     return () => contentWrapper.removeEventListener('wheel', handleScrolling);
-  });
+  }, []);
+
+  useEffect(() => {
+    const currentUserJson = localStorage.getItem('currentUser');
+    const [currentUser] = JSON.parse(currentUserJson);
+    dispatch(assignCurrentUser(currentUser));
+  }, []);
 
   return (
     <>

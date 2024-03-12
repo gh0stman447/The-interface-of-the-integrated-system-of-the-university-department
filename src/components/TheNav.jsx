@@ -7,6 +7,7 @@ import { STATUS } from '../constants/status';
 
 export const TheNav = () => {
   const navItems = useSelector((state) => state.modules.modules);
+  const [{ role }] = JSON.parse(localStorage.getItem('currentUser'));
 
   if (navItems.status === STATUS.loading) return <AppLoader />;
 
@@ -14,6 +15,7 @@ export const TheNav = () => {
     <nav className='overflow-auto'>
       {navItems.map(({ title, id }) => (
         <NavItem
+          role={role} //убрать
           key={title}
           // icon={id > itemsDict.size ? itemsDict.get(itemsDict.size) : itemsDict.get(id)}
           id={id}

@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { TheButtonLogin } from '../components/UI/TheButtonLogin';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { assignRole } from '../state/role/roleSlice';
+import { getUserListApi } from '../services/User/UserService';
+import { toast } from 'sonner';
 
 export const Login = () => {
   const [user, setUser] = useState({
@@ -10,7 +12,26 @@ export const Login = () => {
     password: '',
   });
 
+  const navigate = useNavigate();
+
+  async function loginHandler(e) {
+    e.preventDefault();
+
+    const { data } = await getUserListApi();
+
+    const fetchedUser = data.filter(
+      (fetchedUser) =>
+        fetchedUser.password === user.password && fetchedUser.login === user.userName,
+    );
+
+    if (fetchedUser.length !== 0) {
+      localStorage.setItem('currentUser', JSON.stringify(fetchedUser));
+      navigate('/');
+    }
+  }
+
   const dispatch = useDispatch();
+  // dispatch(assignRole(user.userName.toLocaleLowerCase()))
 
   return (
     <div className='text-white h-[100vh] flex items-center justify-center mx-10'>
@@ -41,11 +62,7 @@ export const Login = () => {
             </div>
           </div>
           <div className='flex justify-center mt-4'>
-            <Link to='/'>
-              <TheButtonLogin
-                onClick={() => dispatch(assignRole(user.userName.toLocaleLowerCase()))}
-              />
-            </Link>
+            <TheButtonLogin onClick={(e) => loginHandler(e)} />
           </div>
         </form>
       </div>

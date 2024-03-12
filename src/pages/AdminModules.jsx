@@ -7,6 +7,7 @@ import { AddModuleModal } from '../components/AddModuleModal';
 import { getModuleListAction } from '../state/modulesNav/modulesSlice';
 import { STATUS } from '../constants/status';
 import { AppLoader } from '../components/UI/loader';
+import { toast } from 'sonner';
 
 export const AdminModules = () => {
   const { status, modules, error } = useSelector((state) => state.modules);

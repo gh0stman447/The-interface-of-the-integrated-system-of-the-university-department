@@ -1,28 +1,6 @@
 {
   "users": [
     {
-      "id": "6b1e",
-      "login": "",
-      "password": "",
-      "email": "",
-      "phoneNumber": "",
-      "role": "user",
-      "firstName": "213",
-      "lastName": "123213",
-      "surName": "1232"
-    },
-    {
-      "id": "88ed",
-      "login": "",
-      "password": "",
-      "email": "",
-      "phoneNumber": "",
-      "role": "user",
-      "firstName": "32132121",
-      "lastName": "12321",
-      "surName": "213"
-    },
-    {
       "id": "88ed",
       "login": "admin",
       "password": "111",
@@ -32,7 +10,73 @@
       "firstName": "32132121",
       "lastName": "12321",
       "surName": "213"
+    },
+    {
+      "id": "6acc",
+      "login": "",
+      "password": "",
+      "email": "qwdwqdqwdqwqwdqwqwdqwd",
+      "phoneNumber": "",
+      "role": "user",
+      "firstName": "21312",
+      "lastName": "1232",
+      "surName": "23"
+    },
+    {
+      "id": "ad2a",
+      "login": "",
+      "password": "",
+      "email": "",
+      "phoneNumber": "",
+      "role": "user",
+      "firstName": "qdw",
+      "lastName": "qwdqw",
+      "surName": "qwd"
+    },
+    {
+      "id": "1291",
+      "login": "",
+      "password": "",
+      "email": "",
+      "phoneNumber": "",
+      "role": "user",
+      "firstName": "wqd",
+      "lastName": "wd",
+      "surName": "qwdwqqqw"
+    },
+    {
+      "id": "642b",
+      "login": "",
+      "password": "",
+      "email": "",
+      "phoneNumber": "",
+      "role": "user",
+      "firstName": "qwdqw",
+      "lastName": "qwd",
+      "surName": "wq"
     }
   ],
-  "modules": []
+  "modules": [
+    {
+      "id": "6a24",
+      "title": "213",
+      "description": "21321qwd",
+      "seoTitle": "цйвцйвц",
+      "seoDescription": "qwdw"
+    },
+    {
+      "id": "37b6",
+      "title": "qwdwq",
+      "description": "qwdwqd",
+      "seoTitle": "qwdwqwqdwq",
+      "seoDescription": ""
+    },
+    {
+      "id": "34c3",
+      "title": "qwdqw",
+      "description": "wqdw",
+      "seoTitle": "",
+      "seoDescription": ""
+    }
+  ]
 }

@@ -3,6 +3,8 @@ import { TheContextMenu } from './TheContextMenu';
 import { Person } from './Icons/Person';
 import { useSelector } from 'react-redux';
 import { menuOptions } from '../constants/menuOptions';
+import { roles } from '../constants/roles';
+import { useNavigate } from 'react-router-dom';
 
 const clickPosition = { x: null, y: null };
 
@@ -28,7 +30,7 @@ const menuAdminItems = [
 ];
 
 export const TheAvatar = ({ toggleScrolling }) => {
-  const role = useSelector((state) => state.role.role);
+  const [{ role }] = JSON.parse(localStorage.getItem('currentUser'));
 
   const [isContextMenuOpen, setIsContextMenuOpen] = useState(false);
   const contextMenuRef = useRef(null);
@@ -117,7 +119,7 @@ export const TheAvatar = ({ toggleScrolling }) => {
           onClick={closeContextMenu}
           ref={contextMenuRef}
           classes={menuClasses}
-          menuItems={role === 'admin'.toLocaleLowerCase() ? menuAdminItems : menuUserItems}
+          menuItems={role === roles.admin.toLocaleLowerCase() ? menuAdminItems : menuUserItems}
         />
       )}
     </a>

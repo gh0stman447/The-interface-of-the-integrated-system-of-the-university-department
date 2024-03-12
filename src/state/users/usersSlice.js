@@ -23,7 +23,7 @@ export const getUserListAction = createAsyncThunk(
       if (response.status !== 200) {
         throw new Error('ServerError!');
       }
-      
+
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -71,7 +71,11 @@ export const updateUserAction = createAsyncThunk(
 const usersSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {},
+  reducers: {
+    assignCurrentUser: (state, action) => {
+      state.currentUser = action.payload;
+    },
+  },
 
   extraReducers: (builder) => {
     builder.addCase(getUserListAction.fulfilled, (state, action) => {
@@ -90,6 +94,7 @@ const usersSlice = createSlice({
   },
 });
 
-export const { changeUser, deleteUser, changeUserData, addUser } = usersSlice.actions;
+export const { changeUser, deleteUser, changeUserData, addUser, assignCurrentUser } =
+  usersSlice.actions;
 
 export default usersSlice.reducer;

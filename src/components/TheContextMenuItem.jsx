@@ -1,18 +1,22 @@
 import { useNavigate } from 'react-router-dom';
 import { menuOptions } from '../constants/menuOptions';
+import { useSelector } from 'react-redux';
 
 export const TheContextMenuItem = ({ children: label, onClick: closeContextMenu }) => {
   const navigate = useNavigate();
+
+  const [{ id }] = JSON.parse(localStorage.getItem('currentUser'));
 
   const handleClick = () => {
     closeContextMenu();
 
     if (label.toLowerCase() === menuOptions.exit.toLocaleLowerCase()) {
+      localStorage.clear();
       navigate('/auth');
     } else if (label.toLowerCase() === menuOptions.adminPanel.toLocaleLowerCase()) {
       navigate('/admin');
     } else if (label.toLowerCase() === menuOptions.profile.toLocaleLowerCase()) {
-      navigate('/profile/');
+      navigate(`/profile/:${id}`);
     }
   };
 

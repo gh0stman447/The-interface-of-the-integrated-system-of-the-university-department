@@ -1,24 +1,20 @@
+import { roles } from '../../constants/roles';
 import { createSlice } from '@reduxjs/toolkit';
 
-const ROLES = {
-  admin: 'admin',
-  user: 'user',
-};
-
 const initialState = {
-  role: 'user',
+  role: roles.user,
 };
 
-const roleSlice = createSlice({
+const roleslice = createSlice({
   name: 'role',
   initialState,
   reducers: {
     assignRole: (state, action) => {
-      action.payload === ROLES.admin ? (state.role = ROLES.admin) : (state.role = ROLES.user);
+      action.payload === roles.admin ? (state.role = roles.admin) : (state.role = roles.user);
     },
   },
 });
 
-export const { assignRole } = roleSlice.actions;
+export const { assignRole } = roleslice.actions;
 
-export default roleSlice.reducer;
+export default roleslice.reducer;

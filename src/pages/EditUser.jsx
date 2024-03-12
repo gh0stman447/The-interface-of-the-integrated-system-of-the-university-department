@@ -26,6 +26,7 @@ export const EditUser = () => {
         onClick: () => {},
       },
     });
+
     dispatch(
       updateUserAction({
         id: id,
@@ -33,7 +34,7 @@ export const EditUser = () => {
       }),
     );
   };
-  
+
   useEffect(() => {
     setUserData({
       ...user,
