@@ -46,7 +46,7 @@ export const EditUser = () => {
   return (
     <>
       <h1 className='text-2xl'>Изменение пользователя {user?.firstName}</h1>
-      <div className='flex flex-col max-w-screen-lg space-y-6 *:mt-8'>
+      <div className='flex flex-col max-w-screen-lg space-y-6 mt-8'>
         <div className='flex flex-col gap-y-2'>
           <p>Фамилия</p>
           <Input
@@ -111,9 +111,12 @@ export const EditUser = () => {
           />
         </div>
       </div>
+      <Button onClick={() => {}} className={'mt-8'} variant={'secondary'}>
+        Назначить роль
+      </Button>
       <div className='flex items-center gap-4'>
         <Link to='/admin/users'>
-          <Button className={'my-10 w-fit'} variant={'secondary'}>
+          <Button className={'my-10'} variant={'secondary'}>
             Назад
           </Button>
         </Link>

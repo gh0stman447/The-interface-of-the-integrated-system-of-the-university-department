@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "0bf0",
-      "login": "admin",
+      "login": "Oleg123",
       "password": "123",
       "email": "o_malygin@bk.ru",
       "phoneNumber": "89629470325",
@@ -23,18 +23,45 @@
       "role": "user",
       "firstName": "Василий",
       "lastName": "Васильев",
-      "surName": "Васильевич"
+      "surName": "Васильевич",
+      "contractNumber": "3452142542142354",
+      "position": "Старший преподаватель",
+      "status": "Заведующий кафедры"
     }
   ],
   "modules": [
     {
-      "id": "e581",
-      "title": "123"
+      "id": "f72f",
+      "title": "Учебная работа",
+      "description": "",
+      "seoTitle": "",
+      "seoDescription": ""
     },
     {
-      "id": "b47c",
-      "title": "qw",
-      "description": "qwdwq",
+      "id": "4e0a",
+      "title": "Научная работа",
+      "description": "",
+      "seoTitle": "",
+      "seoDescription": ""
+    },
+    {
+      "id": "dae8",
+      "title": "Методическая работа",
+      "description": "",
+      "seoTitle": "",
+      "seoDescription": ""
+    },
+    {
+      "id": "e3c3",
+      "title": "Организационная работа",
+      "description": "",
+      "seoTitle": "",
+      "seoDescription": ""
+    },
+    {
+      "id": "1f8e",
+      "title": "Управленческая работа",
+      "description": "",
       "seoTitle": "",
       "seoDescription": ""
     }
