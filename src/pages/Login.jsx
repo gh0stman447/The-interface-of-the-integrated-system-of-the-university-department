@@ -30,9 +30,6 @@ export const Login = () => {
     }
   }
 
-  const dispatch = useDispatch();
-  // dispatch(assignRole(user.userName.toLocaleLowerCase()))
-
   return (
     <div className='text-white h-[100vh] flex items-center justify-center mx-10'>
       <div className='bg-slate-800 border border-slate-600 rounded-sm p-8 shadow-lg backdrop-filter backdrop-blur-lg bg-opacity-30 relative flex-grow max-w-[500px]'>
