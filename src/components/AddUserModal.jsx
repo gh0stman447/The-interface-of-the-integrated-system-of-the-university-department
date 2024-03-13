@@ -14,9 +14,15 @@ import { postUserAction } from '../state/users/usersSlice';
 
 export const AddUserModal = () => {
   const [inputUser, setInputUser] = useState({
-    firstName: '',
+    login: '',
+    password: '',
+    email: '',
     lastName: '',
+    firstName: '',
     surName: '',
+    contractNumber: '',
+    position: '',
+    status: '',
   });
 
   const dispatch = useDispatch();
@@ -25,9 +31,16 @@ export const AddUserModal = () => {
     dispatch(postUserAction(_inputUser));
 
     setInputUser({
-      firstName: '',
+      //возможно лишнее
+      login: '',
+      password: '',
+      email: '',
       lastName: '',
+      firstName: '',
       surName: '',
+      contractNumber: '',
+      position: '',
+      status: '',
     });
   };
 
@@ -41,6 +54,36 @@ export const AddUserModal = () => {
           <p className='text-2xl'>Добавление пользователя</p>
         </DialogHeader>
         <div className='grid gap-4 py-4'>
+          <div className='grid grid-cols-4 items-center gap-4'>
+            <p htmlFor='name' className='text-right'>
+              Логин
+            </p>
+            <Input
+              value={inputUser.login}
+              onChange={(e) => setInputUser({ ...inputUser, login: e.target.value })}
+              className='col-span-3'
+            />
+          </div>
+          <div className='grid grid-cols-4 items-center gap-4'>
+            <p htmlFor='name' className='text-right'>
+              Пароль
+            </p>
+            <Input
+              value={inputUser.password}
+              onChange={(e) => setInputUser({ ...inputUser, password: e.target.value })}
+              className='col-span-3'
+            />
+          </div>
+          <div className='grid grid-cols-4 items-center gap-4'>
+            <p htmlFor='name' className='text-right'>
+              Почта
+            </p>
+            <Input
+              value={inputUser.email}
+              onChange={(e) => setInputUser({ ...inputUser, email: e.target.value })}
+              className='col-span-3'
+            />
+          </div>
           <div className='grid grid-cols-4 items-center gap-4'>
             <p htmlFor='name' className='text-right'>
               Фамилия
@@ -66,6 +109,36 @@ export const AddUserModal = () => {
             <Input
               value={inputUser.surName}
               onChange={(e) => setInputUser({ ...inputUser, surName: e.target.value })}
+              className='col-span-3'
+            />
+          </div>
+          <div className='grid grid-cols-4 items-center gap-4'>
+            <p htmlFor='name' className='text-right'>
+              Номер договора
+            </p>
+            <Input
+              value={inputUser.contractNumber}
+              onChange={(e) => setInputUser({ ...inputUser, contractNumber: e.target.value })}
+              className='col-span-3'
+            />
+          </div>
+          <div className='grid grid-cols-4 items-center gap-4'>
+            <p htmlFor='name' className='text-right'>
+              Должность
+            </p>
+            <Input
+              value={inputUser.position}
+              onChange={(e) => setInputUser({ ...inputUser, position: e.target.value })}
+              className='col-span-3'
+            />
+          </div>
+          <div className='grid grid-cols-4 items-center gap-4'>
+            <p htmlFor='name' className='text-right'>
+              Статус
+            </p>
+            <Input
+              value={inputUser.status}
+              onChange={(e) => setInputUser({ ...inputUser, status: e.target.value })}
               className='col-span-3'
             />
           </div>

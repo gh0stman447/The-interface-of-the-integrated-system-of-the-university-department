@@ -34,19 +34,7 @@ export const getUserListAction = createAsyncThunk(
 export const postUserAction = createAsyncThunk(
   'user/postUserAction',
   async (payload, { dispatch }) => {
-    const { firstName, lastName, surName } = payload;
-
-    const newUser = {
-      login: '',
-      password: '',
-      email: '',
-      phoneNumber: '',
-      role: 'user',
-      firstName,
-      lastName,
-      surName,
-    };
-
+    const newUser = payload;
     await postUserApi(newUser);
     dispatch(getUserListAction());
   },

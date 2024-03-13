@@ -46,8 +46,15 @@ export const EditUser = () => {
   return (
     <>
       <h1 className='text-2xl'>Изменение пользователя {user?.firstName}</h1>
-      <div className='flex flex-col max-w-screen-lg space-y-6'>
-        <div className='flex flex-col gap-y-2 mt-8'>
+      <div className='flex flex-col max-w-screen-lg space-y-6 *:mt-8'>
+        <div className='flex flex-col gap-y-2'>
+          <p>Фамилия</p>
+          <Input
+            value={userData.lastName}
+            onChange={(e) => setUserData({ ...userData, lastName: e.target.value })}
+          />
+        </div>
+        <div className='flex flex-col gap-y-2'>
           <p>Имя</p>
           <Input
             value={userData.firstName}
@@ -55,10 +62,10 @@ export const EditUser = () => {
           />
         </div>
         <div className='flex flex-col gap-y-2'>
-          <p>Фамилия</p>
+          <p>Отчество</p>
           <Input
-            value={userData.lastName}
-            onChange={(e) => setUserData({ ...userData, lastName: e.target.value })}
+            value={userData.surName}
+            onChange={(e) => setUserData({ ...userData, surName: e.target.value })}
           />
         </div>
         <div className='flex flex-col gap-y-2'>
@@ -80,6 +87,27 @@ export const EditUser = () => {
           <Input
             value={userData.password}
             onChange={(e) => setUserData({ ...userData, password: e.target.value })}
+          />
+        </div>
+        <div className='flex flex-col gap-y-2'>
+          <p>Номер договора</p>
+          <Input
+            value={userData.contractNumber}
+            onChange={(e) => setUserData({ ...userData, contractNumber: e.target.value })}
+          />
+        </div>
+        <div className='flex flex-col gap-y-2'>
+          <p>Должность</p>
+          <Input
+            value={userData.position}
+            onChange={(e) => setUserData({ ...userData, position: e.target.value })}
+          />
+        </div>
+        <div className='flex flex-col gap-y-2'>
+          <p>Статус</p>
+          <Input
+            value={userData.status}
+            onChange={(e) => setUserData({ ...userData, status: e.target.value })}
           />
         </div>
       </div>

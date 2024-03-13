@@ -1,4 +1,42 @@
 {
-  "users": [],
-  "modules": []
+  "users": [
+    {
+      "id": "0bf0",
+      "login": "admin",
+      "password": "123",
+      "email": "o_malygin@bk.ru",
+      "phoneNumber": "89629470325",
+      "role": "admin",
+      "firstName": "Олег",
+      "lastName": "Малыгин",
+      "surName": "Романович",
+      "contractNumber": "12323453442323523",
+      "position": "Старший преподаватель",
+      "status": "Зав кафедры"
+    },
+    {
+      "id": "776d",
+      "login": "vasya",
+      "password": "vasya",
+      "email": "vasilii@bk.ru",
+      "phoneNumber": "",
+      "role": "user",
+      "firstName": "Василий",
+      "lastName": "Васильев",
+      "surName": "Васильевич"
+    }
+  ],
+  "modules": [
+    {
+      "id": "e581",
+      "title": "123"
+    },
+    {
+      "id": "b47c",
+      "title": "qw",
+      "description": "qwdwq",
+      "seoTitle": "",
+      "seoDescription": ""
+    }
+  ]
 }
