@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button } from '../components/UI/button';
 import { useDispatch, useSelector } from 'react-redux';
 import { Input } from '../components/UI/input';
@@ -13,6 +13,7 @@ export const EditModule = () => {
   const module = useSelector((state) => state.modules.modules.find((module) => module.id == id));
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [moduleData, setModuleData] = useState({
     ...module,
@@ -76,7 +77,7 @@ export const EditModule = () => {
       </div>
       <div className='flex items-center gap-4'>
         <Link to='/admin/modules'>
-          <Button className={'my-10 w-fit'} variant={'secondary'}>
+          <Button onClick={() => navigate(-1)} variant={'secondary'} className='my-10 w-fit'>
             Назад
           </Button>
         </Link>

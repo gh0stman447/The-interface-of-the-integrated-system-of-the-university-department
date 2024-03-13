@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button } from '../components/UI/button';
 import { useSelector } from 'react-redux';
 import { AppLoader } from '../components/UI/loader';
 
 export const ViewUser = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const user = useSelector((state) => state.users.users.find((user) => user.id === id));
   if (!user) return <AppLoader />;
 
@@ -27,7 +29,7 @@ export const ViewUser = () => {
         <p>Роль: {user.role}</p>
       </div>
       <Link to='/admin/users'>
-        <Button className={'my-10'} variant={'secondary'}>
+        <Button onClick={() => navigate(-1)} variant={'secondary'} className='mt-10'>
           Назад
         </Button>
       </Link>

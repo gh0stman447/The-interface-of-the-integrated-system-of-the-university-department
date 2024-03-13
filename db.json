@@ -31,35 +31,35 @@
   ],
   "modules": [
     {
-      "id": "f72f",
+      "id": "1",
       "title": "Учебная работа",
       "description": "",
-      "seoTitle": "",
-      "seoDescription": ""
+      "submodules": [
+        {
+          "id": "1",
+          "title": "Модульный журнал",
+          "description": "",
+          "seoTitle": "",
+          "seoDescription": ""
+        },
+        {
+          "id": "2",
+          "title": "Модульный журнал 2",
+          "description": "",
+          "seoTitle": "",
+          "seoDescription": ""
+        }
+      ]
     },
     {
-      "id": "4e0a",
-      "title": "Научная работа",
+      "id": "e30f",
+      "title": "Методические работы",
       "description": "",
       "seoTitle": "",
       "seoDescription": ""
     },
     {
-      "id": "dae8",
-      "title": "Методическая работа",
-      "description": "",
-      "seoTitle": "",
-      "seoDescription": ""
-    },
-    {
-      "id": "e3c3",
-      "title": "Организационная работа",
-      "description": "",
-      "seoTitle": "",
-      "seoDescription": ""
-    },
-    {
-      "id": "1f8e",
+      "id": "43f8",
       "title": "Управленческая работа",
       "description": "",
       "seoTitle": "",

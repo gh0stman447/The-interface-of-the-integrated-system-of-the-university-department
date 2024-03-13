@@ -4,6 +4,12 @@ import { getModuleListAction, itemsDict } from '../state/modulesNav/modulesSlice
 import { useEffect } from 'react';
 import { AppLoader } from './UI/loader';
 import { STATUS } from '../constants/status';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '../components/UI/accordion';
 
 export const TheNav = () => {
   const navItems = useSelector((state) => state.modules.modules);
@@ -13,16 +19,24 @@ export const TheNav = () => {
 
   return (
     <nav className='overflow-auto'>
-      {navItems.map(({ title, id }) => (
-        <NavItem
-          role={role} //убрать
-          key={title}
-          // icon={id > itemsDict.size ? itemsDict.get(itemsDict.size) : itemsDict.get(id)}
-          id={id}
-        >
-          {title}
-        </NavItem>
-      ))}
+      <Accordion type='single' collapsible>
+        {navItems.map(({ title, id, submodules }, i) => (
+          <AccordionItem value={`item-${i}`} key={id}>
+            <AccordionTrigger>{title}</AccordionTrigger>
+            {submodules?.map(({ title, id }) => (
+              <AccordionContent key={id}>
+                <NavItem
+                  role={role}
+                  // icon={id > itemsDict.size ? itemsDict.get(itemsDict.size) : itemsDict.get(id)}
+                  id={id}
+                >
+                  {title}
+                </NavItem>
+              </AccordionContent>
+            ))}
+          </AccordionItem>
+        ))}
+      </Accordion>
     </nav>
   );
 };

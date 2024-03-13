@@ -16,7 +16,7 @@ export const NavItem = ({ icon, children: title, id, role }) => {
       className={({ isActive }) => (isActive ? itemClasses.isActive : itemClasses.notIsActive)}
     >
       <span>{icon}</span>
-      <span className='ml-4 font-semibold'>{title}</span>
+      <span className='font-semibold'>{title}</span>
     </NavLink>
   );
 };

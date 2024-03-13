@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button } from '../components/UI/button';
 import { useSelector } from 'react-redux';
 import { AppLoader } from '../components/UI/loader';
 
 export const ViewModule = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const module = useSelector((state) => state.modules.modules.find((module) => module.id == id));
 
   if (!module) return <AppLoader />;
@@ -18,7 +20,7 @@ export const ViewModule = () => {
         <p>Описание модуля: {module.description}</p>
       </div>
       <Link to='/admin/modules'>
-        <Button className={'my-10'} variant={'secondary'}>
+        <Button onClick={() => navigate(-1)} variant={'secondary'} className='mt-10'>
           Назад
         </Button>
       </Link>

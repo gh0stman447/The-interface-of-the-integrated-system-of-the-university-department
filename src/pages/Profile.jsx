@@ -1,12 +1,13 @@
 import React, { useReducer } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { Button } from '../components/UI/button';
 
 export const Profile = () => {
   const [{ firstName, lastName, surName, contractNumber, status, position, role }] = JSON.parse(
     localStorage.getItem('currentUser'),
   );
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -26,6 +27,10 @@ export const Profile = () => {
           </Button>
         </div>
       </div>
+
+      <Button onClick={() => navigate(-1)} variant={'secondary'} className='mt-6'>
+        Назад
+      </Button>
     </div>
   );
 };

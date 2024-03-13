@@ -30,7 +30,6 @@ export const getModuleListAction = createAsyncThunk(
       if (response.status !== 200) {
         throw new Error('ServerError!');
       }
-
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
