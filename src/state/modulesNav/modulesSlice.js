@@ -46,6 +46,7 @@ export const postModuleAction = createAsyncThunk(
       description,
       seoTitle: '',
       seoDescription: '',
+      subModules: [],
     };
 
     await postModuleApi(newModule);

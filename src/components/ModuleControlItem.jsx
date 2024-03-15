@@ -3,6 +3,7 @@ import { Button } from './UI/button';
 import { useDispatch } from 'react-redux';
 import { deleteModule, deleteModuleAction } from '../state/modulesNav/modulesSlice';
 import { Link } from 'react-router-dom';
+import { AddSubmoduleModal } from './AddSubmoduleModal';
 
 export const ModuleControlItem = ({ id, moduleName }) => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ export const ModuleControlItem = ({ id, moduleName }) => {
   return (
     <div className='flex my-6'>
       <p className='text-xl w-[40%]'>{moduleName}</p>
-      <div className='ml-auto space-x-14'>
+      <div className='ml-auto space-x-3'>
         <Link to={`/viewModule/${id}`}>
           <Button variant={'secondary'} className={'max-w-min justify-self-end'}>
             Просмореть
@@ -25,6 +26,7 @@ export const ModuleControlItem = ({ id, moduleName }) => {
             Редактировать
           </Button>
         </Link>
+        <AddSubmoduleModal />
         <Button
           onClick={() => deleteModuleHandler(id)}
           variant={'secondary'}

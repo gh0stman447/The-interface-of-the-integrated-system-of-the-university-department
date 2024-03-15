@@ -1,16 +1,14 @@
 import React, { useEffect } from 'react';
 import { Button } from '../components/UI/button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddUserModal } from '../components/AddUserModal';
 import { UserControlItem } from '../components/UserControlItem';
-import { getUserListAction } from '../state/users/usersSlice';
 import { STATUS } from '../constants/status';
 import { AppLoader } from '../components/UI/loader';
 
 export const AdminUsers = () => {
   const { users, status, error } = useSelector((state) => state.users);
-  const navigate = useNavigate();
 
   if (status === STATUS.loading) return <AppLoader />;
   return (
@@ -45,9 +43,11 @@ export const AdminUsers = () => {
           </>
         )}
 
-        <Button onClick={() => navigate(-1)} variant={'secondary'} className='mt-10'>
-          Назад
-        </Button>
+        <Link to='/admin'>
+          <Button variant={'secondary'} className='mt-10'>
+            Назад
+          </Button>
+        </Link>
       </div>
     </>
   );

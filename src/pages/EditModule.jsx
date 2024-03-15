@@ -1,11 +1,11 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Button } from '../components/UI/button';
 import { useDispatch, useSelector } from 'react-redux';
 import { Input } from '../components/UI/input';
 import { Toaster } from '../components/UI/sonner';
 import { toast } from 'sonner';
-import { changeModuleData, updateModuleAction } from '../state/modulesNav/modulesSlice';
+import { updateModuleAction } from '../state/modulesNav/modulesSlice';
 import { AppLoader } from '../components/UI/loader';
 
 export const EditModule = () => {
@@ -13,7 +13,6 @@ export const EditModule = () => {
   const module = useSelector((state) => state.modules.modules.find((module) => module.id == id));
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [moduleData, setModuleData] = useState({
     ...module,
@@ -77,7 +76,7 @@ export const EditModule = () => {
       </div>
       <div className='flex items-center gap-4'>
         <Link to='/admin/modules'>
-          <Button onClick={() => navigate(-1)} variant={'secondary'} className='my-10 w-fit'>
+          <Button variant={'secondary'} className='my-10 w-fit'>
             Назад
           </Button>
         </Link>

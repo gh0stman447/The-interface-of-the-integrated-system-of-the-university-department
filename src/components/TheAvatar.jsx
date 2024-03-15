@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { TheContextMenu } from './TheContextMenu';
 import { Person } from './Icons/Person';
-import { useSelector } from 'react-redux';
 import { menuOptions } from '../constants/menuOptions';
 import { roles } from '../constants/roles';
-import { useNavigate } from 'react-router-dom';
 
 const clickPosition = { x: null, y: null };
 

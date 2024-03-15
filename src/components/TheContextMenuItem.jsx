@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { menuOptions } from '../constants/menuOptions';
-import { useSelector } from 'react-redux';
 
 export const TheContextMenuItem = ({ children: label, onClick: closeContextMenu }) => {
   const navigate = useNavigate();

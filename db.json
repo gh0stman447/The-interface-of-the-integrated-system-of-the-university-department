@@ -27,6 +27,18 @@
       "contractNumber": "3452142542142354",
       "position": "Старший преподаватель",
       "status": "Заведующий кафедры"
+    },
+    {
+      "id": "b8f6",
+      "login": "qwdqwd",
+      "passoword": "qdqd",
+      "email": "wqdwqd",
+      "lastName": "wqdwqdq",
+      "firstName": "dwqwd",
+      "surName": "qdqwd",
+      "contractNumber": "qwdqwd",
+      "position": "qwdqw",
+      "status": "wq"
     }
   ],
   "modules": [
@@ -52,18 +64,28 @@
       ]
     },
     {
-      "id": "e30f",
+      "id": "47b0",
       "title": "Методические работы",
       "description": "",
       "seoTitle": "",
-      "seoDescription": ""
+      "seoDescription": "",
+      "subModules": []
     },
     {
-      "id": "43f8",
-      "title": "Управленческая работа",
-      "description": "",
+      "id": "44a5",
+      "title": "123",
+      "description": "123213",
       "seoTitle": "",
-      "seoDescription": ""
+      "seoDescription": "",
+      "subModules": []
+    },
+    {
+      "id": "ea02",
+      "title": "цйвйц",
+      "description": "йцвцй",
+      "seoTitle": "",
+      "seoDescription": "",
+      "subModules": []
     }
   ]
 }

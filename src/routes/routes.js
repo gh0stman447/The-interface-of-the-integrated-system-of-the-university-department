@@ -3,7 +3,7 @@ import { AdminModules } from '../pages/AdminModules';
 import { EditModule } from '../pages/EditModule';
 import { HomePage } from '../pages/HomePage';
 import { Login } from '../pages/Login';
-import { Module } from '../pages/Module';
+import { Module, SubModule } from '../pages/SubModule';
 import { NotFoundedPage } from '../pages/NotFoundedPage';
 import { Profile } from '../pages/Profile';
 import { AdminUsers, Users } from '../pages/AdminUsers';
@@ -18,8 +18,8 @@ const routes = [
     errorElement: <NotFoundedPage />,
     children: [
       {
-        path: '/module/:id',
-        element: <Module />,
+        path: '/submodule/:id',
+        element: <SubModule />,
       },
       {
         path: '/admin',
