@@ -37,7 +37,7 @@ export const getModuleListAction = createAsyncThunk(
   },
 );
 
-export const postModuleAction = createAsyncThunk(
+export const addModuleAction = createAsyncThunk(
   'module/postModuleListAction',
   async (payload, { dispatch }) => {
     const { description, title } = payload;
@@ -46,7 +46,7 @@ export const postModuleAction = createAsyncThunk(
       description,
       seoTitle: '',
       seoDescription: '',
-      subModules: [],
+      submodules: [],
     };
 
     await postModuleApi(newModule);
@@ -66,6 +66,27 @@ export const updateModuleAction = createAsyncThunk(
   'module/updateModuleListAction',
   async ({ id, moduleData }, { dispatch }) => {
     await putModuleApi(id, moduleData);
+    dispatch(getModuleListAction());
+  },
+);
+
+export const addSubmoduleAction = createAsyncThunk(
+  'module/updateModuleListAction',
+  async ({ id, inputData }, { dispatch, getState }) => {
+    const { modules } = getState().modules;
+    const findedModule = modules.find((module) => module.id === id);
+    const updatedModule = {
+      ...findedModule,
+      submodules: [
+        ...findedModule.submodules,
+        {
+          ...inputData,
+          seoTitle: '',
+          seoDescription: '',
+        },
+      ],
+    };
+    await putModuleApi(id, updatedModule);
     dispatch(getModuleListAction());
   },
 );

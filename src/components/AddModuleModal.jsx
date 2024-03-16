@@ -1,11 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { AddModal } from './UI/AddModal';
-import { postModuleAction } from '../state/modulesNav/modulesSlice';
+import { addModuleAction } from '../state/modulesNav/modulesSlice';
 
 export const AddModuleModal = () => {
   const dispatch = useDispatch();
   const addModuleHandler = (inputData) => {
-    dispatch(postModuleAction(inputData));
+    dispatch(addModuleAction(inputData));
   };
 
   const moduleFieldsConfig = [
@@ -15,7 +15,8 @@ export const AddModuleModal = () => {
 
   return (
     <AddModal
-      title='Добавить модуль'
+      buttonTitle='Добавить модуль'
+      title='Добавление модуля'
       fieldsConfig={moduleFieldsConfig}
       actionHandler={addModuleHandler}
     />

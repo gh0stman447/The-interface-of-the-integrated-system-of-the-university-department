@@ -17,6 +17,7 @@ export const ViewModule = () => {
       <div className='flex flex-col gap-y-4'>
         <p>Название модуля: {module.title}</p>
         <p>Описание модуля: {module.description}</p>
+        <p>Количество подмодулей: {module.submodules.length}</p>
       </div>
       <Link to='/admin/modules'>
         <Button variant={'secondary'} className='mt-10'>

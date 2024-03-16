@@ -26,7 +26,7 @@ export const ModuleControlItem = ({ id, moduleName }) => {
             Редактировать
           </Button>
         </Link>
-        <AddSubmoduleModal />
+        <AddSubmoduleModal id={id} />
         <Button
           onClick={() => deleteModuleHandler(id)}
           variant={'secondary'}

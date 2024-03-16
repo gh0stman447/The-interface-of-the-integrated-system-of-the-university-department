@@ -27,65 +27,50 @@
       "contractNumber": "3452142542142354",
       "position": "Старший преподаватель",
       "status": "Заведующий кафедры"
-    },
-    {
-      "id": "b8f6",
-      "login": "qwdqwd",
-      "passoword": "qdqd",
-      "email": "wqdwqd",
-      "lastName": "wqdwqdq",
-      "firstName": "dwqwd",
-      "surName": "qdqwd",
-      "contractNumber": "qwdqwd",
-      "position": "qwdqw",
-      "status": "wq"
     }
   ],
   "modules": [
     {
-      "id": "1",
-      "title": "Учебная работа",
-      "description": "",
+      "id": "09b2",
+      "title": "123",
+      "description": "12321321",
+      "seoTitle": "",
+      "seoDescription": "",
       "submodules": [
         {
-          "id": "1",
-          "title": "Модульный журнал",
-          "description": "",
+          "title": "21321",
+          "description": "213213",
           "seoTitle": "",
           "seoDescription": ""
         },
         {
-          "id": "2",
-          "title": "Модульный журнал 2",
-          "description": "",
+          "title": "123211233",
+          "description": "21321",
+          "seoTitle": "",
+          "seoDescription": ""
+        },
+        {
+          "title": "213213",
+          "description": "12321",
           "seoTitle": "",
           "seoDescription": ""
         }
       ]
     },
     {
-      "id": "47b0",
-      "title": "Методические работы",
-      "description": "",
+      "id": "2800",
+      "title": "21321312",
+      "description": "321",
       "seoTitle": "",
       "seoDescription": "",
-      "subModules": []
-    },
-    {
-      "id": "44a5",
-      "title": "123",
-      "description": "123213",
-      "seoTitle": "",
-      "seoDescription": "",
-      "subModules": []
-    },
-    {
-      "id": "ea02",
-      "title": "цйвйц",
-      "description": "йцвцй",
-      "seoTitle": "",
-      "seoDescription": "",
-      "subModules": []
+      "submodules": [
+        {
+          "description": "123213",
+          "title": "213",
+          "seoTitle": "",
+          "seoDescription": ""
+        }
+      ]
     }
   ]
 }

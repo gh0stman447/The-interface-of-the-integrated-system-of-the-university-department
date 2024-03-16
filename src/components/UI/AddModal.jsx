@@ -10,7 +10,7 @@ import {
 import { Button } from './button';
 import { Input } from './input';
 
-export const AddModal = ({ title, fieldsConfig, actionHandler }) => {
+export const AddModal = ({ buttonTitle, title, fieldsConfig, actionHandler }) => {
   const [inputData, setInputData] = useState({});
 
   const handleAction = () => {
@@ -25,7 +25,7 @@ export const AddModal = ({ title, fieldsConfig, actionHandler }) => {
   return (
     <Dialog>
       <DialogTrigger className={'my-6'}>
-        <Button variant={'secondary'}>{title}</Button>
+        <Button variant={'secondary'}>{buttonTitle}</Button>
       </DialogTrigger>
       <DialogContent className={'bg-[#121212] text-white'}>
         <DialogHeader>

@@ -10,7 +10,7 @@ export const AddUserModal = () => {
 
   const userFieldsConfig = [
     { label: 'Логин', name: 'login' },
-    { label: 'Пароль', name: 'passoword' },
+    { label: 'Пароль', name: 'password' },
     { label: 'Почта', name: 'email' },
     { label: 'Фамилия', name: 'lastName' },
     { label: 'Имя', name: 'firstName' },
@@ -23,7 +23,8 @@ export const AddUserModal = () => {
 
   return (
     <AddModal
-      title='Добавить пользователя'
+      buttonTitle='Добавить пользователя'
+      title='Добавление пользователя'
       fieldsConfig={userFieldsConfig}
       actionHandler={addUserHandler}
     />

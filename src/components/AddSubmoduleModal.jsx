@@ -1,10 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { AddModal } from './UI/AddModal';
+import { addSubmoduleAction } from '../state/modulesNav/modulesSlice';
 
-export const AddSubmoduleModal = () => {
+export const AddSubmoduleModal = ({ id }) => {
   const dispatch = useDispatch();
   const addSubmoduleHandler = (inputData) => {
-    // dispatch(postSubmoduleAction(inputData));
+    dispatch(addSubmoduleAction({ id, inputData }));
   };
 
   const submoduleFieldsConfig = [
@@ -14,7 +15,8 @@ export const AddSubmoduleModal = () => {
 
   return (
     <AddModal
-      title='Добавлить подмодуль'
+      buttonTitle='Добавить подмодуль'
+      title='Добавление подмодуля'
       fieldsConfig={submoduleFieldsConfig}
       actionHandler={addSubmoduleHandler}
     />
