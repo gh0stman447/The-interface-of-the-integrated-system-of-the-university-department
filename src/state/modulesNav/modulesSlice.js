@@ -74,18 +74,25 @@ export const addSubmoduleAction = createAsyncThunk(
   'module/updateModuleListAction',
   async ({ id, inputData }, { dispatch, getState }) => {
     const { modules } = getState().modules;
+
     const findedModule = modules.find((module) => module.id === id);
+
     const updatedModule = {
       ...findedModule,
       submodules: [
         ...findedModule.submodules,
         {
           ...inputData,
+          id:
+            findedModule.submodules.length > 0
+              ? Math.max(...findedModule.submodules.map((submodule) => submodule.id)) + 1
+              : 1,
           seoTitle: '',
           seoDescription: '',
         },
       ],
     };
+
     await putModuleApi(id, updatedModule);
     dispatch(getModuleListAction());
   },
