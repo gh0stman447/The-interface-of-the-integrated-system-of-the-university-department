@@ -11,6 +11,7 @@ import { ViewModule } from '../pages/ViewModule';
 import { ViewUser } from '../pages/ViewUser';
 import { EditUser } from '../pages/EditUser';
 import { AdminSubmodules } from '../pages/AdminSubmodules';
+import { ViewSubmodule } from '../pages/ViewSubmodule';
 
 const routes = [
   {
@@ -53,6 +54,10 @@ const routes = [
       {
         path: '/admin/user/:id',
         element: <ViewUser />,
+      },
+      {
+        path: '/admin/viewSubmodule/:id',
+        element: <ViewSubmodule />,
       },
       {
         path: '/admin/editUser/:id',

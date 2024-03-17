@@ -24,11 +24,12 @@ export const AdminModules = () => {
     dispatch(deleteModuleAction(id));
   };
 
-  if (status === STATUS.loading) return <AppLoader />;
+  if (status === STATUS.loading || status === null) return <AppLoader />;
 
   return (
     <div className='max-w-4xl text-2xl'>
       <h1>Панель администратора - Модули</h1>
+      <AddModuleModal />
 
       {error ? (
         <div className='mb-4'>Ошибка на стороне сервера: {error}</div>
@@ -36,7 +37,6 @@ export const AdminModules = () => {
         <div className='text-3xl mb-4'>Нет модулей</div>
       ) : (
         <>
-          <AddModuleModal />
           {status === STATUS.success && (
             <Table>
               <TableHeader className='text-xl'>

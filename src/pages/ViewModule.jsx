@@ -10,7 +10,6 @@ export const ViewModule = () => {
   const module = useSelector((state) => state.modules.modules.find((module) => module.id == id));
 
   if (!module) return <AppLoader />;
-
   return (
     <div>
       <h1 className='text-2xl mb-8'>Информация о модуле</h1>
@@ -18,12 +17,16 @@ export const ViewModule = () => {
         <p>Название модуля: {module.title}</p>
         <p>Описание модуля: {module.description}</p>
         <p>Количество подмодулей: {module.submodules.length}</p>
-        <p>
-          Подмодули:
-          {module.submodules.map((submodule, index) => (
-            <span> {submodule.title},</span>
-          ))}
-        </p>
+        {module.submodules.length ? (
+          <p>
+            Подмодули:
+            {module.submodules.map((submodule) => (
+              <span key={submodule.id}> {submodule.title},</span>
+            ))}
+          </p>
+        ) : (
+          ''
+        )}
       </div>
       <Link to='/admin/modules'>
         <Button variant={'secondary'} className='mt-10'>

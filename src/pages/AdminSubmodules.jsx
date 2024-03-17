@@ -11,29 +11,37 @@ import {
   TableHeader,
   TableRow,
 } from '../components/UI/table';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { STATUS } from '../constants/status';
 import { AppLoader } from '../components/UI/loader';
+import { deleteSubmoduleAction } from '../state/modulesNav/modulesSlice';
 
 export const AdminSubmodules = () => {
   const { modules, status, error } = useSelector((state) => state.modules);
+
   const { id } = useParams();
 
-  if (status === STATUS.loading) return <AppLoader />;
+  const module = modules.find((module) => module.id == id);
 
-  const module = modules.find((module) => module.id === id);
+  const dispatch = useDispatch();
+
+  if (status === STATUS.loading || status === null) return <AppLoader />;
+
+  function deleteSubmoduleHandler(id) {
+    dispatch(deleteSubmoduleAction(id));
+  }
 
   return (
     <>
       <div className='max-w-4xl text-2xl '>
-        <h1>Панель администратора - Подмодули модуля "{module?.title}"</h1>
+        <h1>Панель администратора - Подмодули модуля "{module.title}"</h1>
+        <AddSubmoduleModal id={id} />
         {error ? (
           <div className='mb-4'>Ошибка на стороне сервера: {error}</div>
-        ) : modules.length === 0 ? (
-          <div className='text-3xl mb-4'>Нет модулей</div>
+        ) : module.submodules.length === 0 ? (
+          <div className='text-3xl mb-4'>Нет подмодулей</div>
         ) : (
           <>
-            <AddSubmoduleModal id={id} />
             {status === STATUS.success && (
               <Table>
                 <TableHeader className='text-xl'>
@@ -43,17 +51,29 @@ export const AdminSubmodules = () => {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {module.submodules.map((submodule) => (
+                  {module?.submodules.map((submodule) => (
                     <TableRow className='text-lg' key={id}>
                       <TableCell className='font-medium'>{submodule.title}</TableCell>
                       <TableCell>
-                        <Button variant={'secondary'}>Посмотреть</Button>
+                        <Link to={`/admin/viewSubmodule/${submodule.id}`}>
+                          <Button variant={'secondary'}>Посмотреть</Button>
+                        </Link>
                       </TableCell>
                       <TableCell>
                         <Button variant={'secondary'}>Редактировать</Button>
                       </TableCell>
                       <TableCell className='text-right'>
-                        <Button variant={'secondary'}>Удалить</Button>
+                        <Button
+                          variant={'secondary'}
+                          onClick={() =>
+                            deleteSubmoduleHandler({
+                              submoduleId: submodule.id,
+                              moduleId: module.id,
+                            })
+                          }
+                        >
+                          Удалить
+                        </Button>
                       </TableCell>
                     </TableRow>
                   ))}

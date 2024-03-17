@@ -13,7 +13,7 @@ export const TheNav = () => {
   const navItems = useSelector((state) => state.modules.modules);
   const [{ role }] = JSON.parse(localStorage.getItem('currentUser'));
 
-  if (navItems.status === STATUS.loading) return <AppLoader />;
+  if (navItems.status === STATUS.loading || navItems.status === null) return <AppLoader />;
 
   return (
     <nav className='overflow-auto'>
@@ -21,7 +21,7 @@ export const TheNav = () => {
         {navItems.map(({ title, id, submodules }, i) => (
           <AccordionItem value={`item-${i}`} key={id}>
             <AccordionTrigger>{title}</AccordionTrigger>
-            {submodules?.map(({ title, id }) => (
+            {submodules.map(({ title, id }) => (
               <AccordionContent key={id}>
                 <NavItem
                   role={role}

@@ -18,7 +18,8 @@ import { deleteUserAction } from '../state/users/usersSlice';
 export const AdminUsers = () => {
   const { users, status, error } = useSelector((state) => state.users);
   const dispatch = useDispatch();
-  if (status === STATUS.loading) return <AppLoader />;
+  if (status === STATUS.loading || status === null) return <AppLoader />;
+  
   return (
     <>
       <div className='max-w-5xl text-2xl'>

@@ -7,7 +7,7 @@ import { AppLoader } from '../components/UI/loader';
 export const ViewUser = () => {
   const { id } = useParams();
 
-  const user = useSelector((state) => state.users.users.find((user) => user.id === id));
+  const user = useSelector((state) => state.users.users.find((user) => user.id == id));
   if (!user) return <AppLoader />;
 
   return (

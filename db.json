@@ -31,71 +31,34 @@
   ],
   "modules": [
     {
-      "id": "09b2",
-      "title": "123",
-      "description": "12321321",
+      "id": "9779",
+      "title": "МОДУЛЬ 1",
       "seoTitle": "",
       "seoDescription": "",
       "submodules": [
         {
-          "title": "12312",
-          "description": "123213",
-          "id": 1,
-          "seoTitle": "",
-          "seoDescription": ""
-        },
-        {
-          "title": "12321",
-          "description": "321",
-          "id": 2,
-          "seoTitle": "",
-          "seoDescription": ""
-        },
-        {
-          "title": "123123",
-          "description": "12321",
-          "id": 3,
-          "seoTitle": "",
-          "seoDescription": ""
-        },
-        {
-          "title": "123213",
-          "description": "213213",
-          "id": 4,
-          "seoTitle": "",
-          "seoDescription": ""
-        },
-        {
           "title": "213",
-          "description": "21323",
-          "id": 5,
+          "description": "213",
+          "id": 1,
           "seoTitle": "",
           "seoDescription": ""
         }
       ]
     },
     {
-      "id": "2800",
-      "title": "21321312",
-      "description": "321",
+      "id": "2922",
+      "title": "МОДУЛЬ 2",
       "seoTitle": "",
       "seoDescription": "",
-      "submodules": [
-        {
-          "title": "21321",
-          "description": "312",
-          "id": 1,
-          "seoTitle": "",
-          "seoDescription": ""
-        },
-        {
-          "title": "21312",
-          "description": "2121",
-          "id": 2,
-          "seoTitle": "",
-          "seoDescription": ""
-        }
-      ]
+      "submodules": []
+    },
+    {
+      "id": "1e01",
+      "title": "123123",
+      "description": "12321",
+      "seoTitle": "",
+      "seoDescription": "",
+      "submodules": []
     }
   ]
 }

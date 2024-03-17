@@ -75,7 +75,17 @@ export const addSubmoduleAction = createAsyncThunk(
   async ({ id, inputData }, { dispatch, getState }) => {
     const { modules } = getState().modules;
 
-    const findedModule = modules.find((module) => module.id === id);
+    const allSubmodules = modules.reduce((acc, module) => {
+      acc.push(...module.submodules);
+      return acc;
+    }, []);
+    
+    const newSubmoduleId =
+      allSubmodules.length > 0
+        ? Math.max(...allSubmodules.map((submodule) => submodule.id)) + 1
+        : 1;
+
+    const findedModule = modules.find((module) => module.id == id);
 
     const updatedModule = {
       ...findedModule,
@@ -83,10 +93,7 @@ export const addSubmoduleAction = createAsyncThunk(
         ...findedModule.submodules,
         {
           ...inputData,
-          id:
-            findedModule.submodules.length > 0
-              ? Math.max(...findedModule.submodules.map((submodule) => submodule.id)) + 1
-              : 1,
+          id: allSubmodules.length > 0 ? newSubmoduleId : 1,
           seoTitle: '',
           seoDescription: '',
         },
@@ -98,6 +105,24 @@ export const addSubmoduleAction = createAsyncThunk(
   },
 );
 
+export const deleteSubmoduleAction = createAsyncThunk(
+  'module/updateModuleListAction',
+  async ({ submoduleId, moduleId }, { dispatch, getState }) => {
+    const { modules } = getState().modules;
+
+    const module = modules.find((module) => module.id == moduleId);
+
+    const submodules = module.submodules.filter((submodule) => submodule.id != submoduleId);
+
+    const updatedModule = {
+      ...module,
+      submodules: submodules,
+    };
+
+    await putModuleApi(moduleId, updatedModule);
+    dispatch(getModuleListAction());
+  },
+);
 const modulesSlice = createSlice({
   name: 'modules',
   initialState,
@@ -105,8 +130,8 @@ const modulesSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(getModuleListAction.fulfilled, (state, action) => {
-      state.status = STATUS.success;
       state.modules = action.payload;
+      state.status = STATUS.success;
     });
 
     builder.addCase(getModuleListAction.pending, (state) => {
@@ -114,8 +139,8 @@ const modulesSlice = createSlice({
     });
 
     builder.addCase(getModuleListAction.rejected, (state, action) => {
-      state.status = STATUS.error;
       state.error = action.payload;
+      state.status = STATUS.error;
     });
   },
 });
