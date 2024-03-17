@@ -1,6 +1,5 @@
-import React, { useReducer } from 'react';
-import { useSelector } from 'react-redux';
-import { NavLink, useNavigate, useParams } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/UI/button';
 
 export const Profile = () => {

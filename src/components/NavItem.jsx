@@ -1,10 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { roles } from '../constants/roles';
 
 export const NavItem = ({ icon, children: title, id, role }) => {
-  console.log(id);
   const itemClasses = {
     isActive: 'flex items-center text-white bg-[#282828] px-2 py-2 mx-2 mx-4 rounded',
     notIsActive: 'flex items-center hover:text-white px-2 py-2 mx-2 mx-4 rounded duration-300',

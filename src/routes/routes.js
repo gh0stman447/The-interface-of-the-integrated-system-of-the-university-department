@@ -3,13 +3,14 @@ import { AdminModules } from '../pages/AdminModules';
 import { EditModule } from '../pages/EditModule';
 import { HomePage } from '../pages/HomePage';
 import { Login } from '../pages/Login';
-import { Module, SubModule } from '../pages/SubModule';
+import { SubModule } from '../pages/SubModule';
 import { NotFoundedPage } from '../pages/NotFoundedPage';
 import { Profile } from '../pages/Profile';
-import { AdminUsers, Users } from '../pages/AdminUsers';
+import { AdminUsers } from '../pages/AdminUsers';
 import { ViewModule } from '../pages/ViewModule';
 import { ViewUser } from '../pages/ViewUser';
 import { EditUser } from '../pages/EditUser';
+import { AdminSubmodules } from '../pages/AdminSubmodules';
 
 const routes = [
   {
@@ -32,6 +33,10 @@ const routes = [
       {
         path: '/admin/modules',
         element: <AdminModules />,
+      },
+      {
+        path: '/admin/submodules/:id',
+        element: <AdminSubmodules />,
       },
       {
         path: '/viewModule/:id',

@@ -1,45 +1,80 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button } from '../components/UI/button';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddUserModal } from '../components/AddUserModal';
-import { UserControlItem } from '../components/UserControlItem';
 import { STATUS } from '../constants/status';
 import { AppLoader } from '../components/UI/loader';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '../components/UI/table';
+import { deleteUserAction } from '../state/users/usersSlice';
 
 export const AdminUsers = () => {
   const { users, status, error } = useSelector((state) => state.users);
-
+  const dispatch = useDispatch();
   if (status === STATUS.loading) return <AppLoader />;
   return (
     <>
       <div className='max-w-5xl text-2xl'>
         <h1>Панель администратора - Пользователи</h1>
 
-        <AddUserModal />
         {error ? (
           <div>Ошибка на стороне сервера: {error}</div>
         ) : users.length === 0 ? (
           <div className='text-3xl mb-4'>Нет пользователей</div>
         ) : (
           <>
-            <div className='grid grid-cols-4'>
-              <p>Фамилия</p>
-              <p className=''>Имя</p>
-              <p className=''>Почта</p>
-              <p className=''>Действия</p>
-            </div>
+            {status === STATUS.success && (
+              <>
+                <AddUserModal />
+                <Table>
+                  <TableHeader className='text-xl'>
+                    <TableRow>
+                      <TableHead className=''>Фамилия</TableHead>
+                      <TableHead className=''>Имя</TableHead>
+                      <TableHead className=''>Почта</TableHead>
+                      <TableHead className=''>Действия</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {users.map(({ id, firstName, lastName, email }) => (
+                      <TableRow className='text-lg' key={id}>
+                        <>
+                          <TableCell className='font-medium'>{firstName}</TableCell>
+                          <TableCell className='font-medium'>{lastName}</TableCell>
+                          <TableCell className='font-medium'>{email}</TableCell>
 
-            {status === STATUS.success &&
-              users.map((user) => (
-                <UserControlItem
-                  key={user.id}
-                  firstName={user.firstName}
-                  lastName={user.lastName}
-                  userEmail={user.email}
-                  id={user.id}
-                />
-              ))}
+                          <TableCell>
+                            <Link to={`/admin/user/${id}`}>
+                              <Button variant={'secondary'}>Просмотреть</Button>
+                            </Link>
+                          </TableCell>
+                          <TableCell>
+                            <Link to={`/admin/editUser/${id}`}>
+                              <Button variant={'secondary'}>Редактировать</Button>
+                            </Link>
+                          </TableCell>
+                          <TableCell className=''>
+                            <Button
+                              onClick={() => dispatch(deleteUserAction(id))}
+                              variant={'secondary'}
+                            >
+                              Удалить
+                            </Button>
+                          </TableCell>
+                        </>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </>
+            )}
           </>
         )}
 
@@ -52,3 +87,9 @@ export const AdminUsers = () => {
     </>
   );
 };
+
+// key={user.id}
+// firstName={user.firstName}
+// lastName={user.lastName}
+// userEmail={user.email}
+// id={user.id}

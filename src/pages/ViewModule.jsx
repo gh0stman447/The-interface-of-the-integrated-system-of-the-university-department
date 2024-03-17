@@ -18,6 +18,12 @@ export const ViewModule = () => {
         <p>Название модуля: {module.title}</p>
         <p>Описание модуля: {module.description}</p>
         <p>Количество подмодулей: {module.submodules.length}</p>
+        <p>
+          Подмодули:
+          {module.submodules.map((submodule, index) => (
+            <span> {submodule.title},</span>
+          ))}
+        </p>
       </div>
       <Link to='/admin/modules'>
         <Button variant={'secondary'} className='mt-10'>

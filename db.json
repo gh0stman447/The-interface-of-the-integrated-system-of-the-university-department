@@ -64,6 +64,13 @@
           "id": 4,
           "seoTitle": "",
           "seoDescription": ""
+        },
+        {
+          "title": "213",
+          "description": "21323",
+          "id": 5,
+          "seoTitle": "",
+          "seoDescription": ""
         }
       ]
     },
@@ -84,29 +91,6 @@
         {
           "title": "21312",
           "description": "2121",
-          "id": 2,
-          "seoTitle": "",
-          "seoDescription": ""
-        }
-      ]
-    },
-    {
-      "id": "5166",
-      "title": "wqdwqdwq",
-      "description": "qdqwdwdw",
-      "seoTitle": "",
-      "seoDescription": "",
-      "submodules": [
-        {
-          "title": "123",
-          "description": "123",
-          "id": 1,
-          "seoTitle": "",
-          "seoDescription": ""
-        },
-        {
-          "title": "123213",
-          "description": "212132",
           "id": 2,
           "seoTitle": "",
           "seoDescription": ""

@@ -1,7 +1,5 @@
 import { NavItem } from './NavItem';
-import { useDispatch, useSelector } from 'react-redux';
-import { getModuleListAction, itemsDict } from '../state/modulesNav/modulesSlice';
-import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { AppLoader } from './UI/loader';
 import { STATUS } from '../constants/status';
 import {
