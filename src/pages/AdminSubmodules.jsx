@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { STATUS } from '../constants/status';
 import { AppLoader } from '../components/UI/loader';
 import { deleteSubmoduleAction } from '../state/modulesNav/modulesSlice';
+import { QuestionModal } from '../components/UI/QuestionModal';
 
 export const AdminSubmodules = () => {
   const { modules, status, error } = useSelector((state) => state.modules);
@@ -27,8 +28,8 @@ export const AdminSubmodules = () => {
 
   if (status === STATUS.loading || status === null) return <AppLoader />;
 
-  function deleteSubmoduleHandler(id) {
-    dispatch(deleteSubmoduleAction(id));
+  function deleteSubmoduleHandlerAction(data) {
+    dispatch(deleteSubmoduleAction(data));
   }
 
   return (
@@ -65,17 +66,14 @@ export const AdminSubmodules = () => {
                         </Link>
                       </TableCell>
                       <TableCell className='text-right'>
-                        <Button
-                          variant={'secondary'}
-                          onClick={() =>
-                            deleteSubmoduleHandler({
-                              submoduleId: submodule.id,
-                              moduleId: module.id,
-                            })
-                          }
-                        >
-                          Удалить
-                        </Button>
+                        <QuestionModal
+                          action={deleteSubmoduleHandlerAction}
+                          id={{
+                            submoduleId: submodule.id,
+                            moduleId: module.id,
+                          }}
+                          type='submodule'
+                        />
                       </TableCell>
                     </TableRow>
                   ))}

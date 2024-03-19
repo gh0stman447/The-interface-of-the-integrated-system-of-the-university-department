@@ -15,12 +15,13 @@ import {
   TableHeader,
   TableRow,
 } from '../components/UI/table';
+import { QuestionModal } from '../components/UI/QuestionModal';
 export const AdminModules = () => {
   const { status, modules, error } = useSelector((state) => state.modules);
 
   const dispatch = useDispatch();
 
-  const deleteModuleHandler = (id) => {
+  const deleteModuleHandlerAction = (id) => {
     dispatch(deleteModuleAction(id));
   };
 
@@ -42,7 +43,7 @@ export const AdminModules = () => {
               <TableHeader className='text-xl'>
                 <TableRow>
                   <TableHead className='w-full'>Наименование модуля</TableHead>
-                  <TableHead className=''>Действия</TableHead>
+                  <TableHead>Действия</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -60,10 +61,8 @@ export const AdminModules = () => {
                           <Button variant={'secondary'}>Редактировать</Button>
                         </Link>
                       </TableCell>
-                      <TableCell className=''>
-                        <Button onClick={() => deleteModuleHandler(id)} variant={'secondary'}>
-                          Удалить
-                        </Button>
+                      <TableCell>
+                        <QuestionModal action={deleteModuleHandlerAction} id={id} type='module' />
                       </TableCell>
                       <TableCell>
                         <Link to={`/admin/submodules/${id}`}>

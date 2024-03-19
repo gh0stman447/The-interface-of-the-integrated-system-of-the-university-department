@@ -1,32 +1,17 @@
 {
   "users": [
     {
-      "id": "0bf0",
-      "login": "Oleg123",
-      "password": "123",
-      "email": "o_malygin@bk.ru",
-      "phoneNumber": "89629470325",
-      "role": "admin",
-      "firstName": "Олег",
-      "lastName": "Малыгин",
-      "surName": "Романович",
-      "contractNumber": "12323453442323523",
-      "position": "Старший преподаватель",
-      "status": "Зав кафедры"
-    },
-    {
-      "id": "776d",
+      "id": "82a3",
       "login": "vasya",
-      "password": "vasya",
-      "email": "vasilii@bk.ru",
-      "phoneNumber": "",
-      "role": "user",
+      "password": "vasy",
+      "email": "vasya@bk.ru",
+      "lastName": "Василье",
       "firstName": "Василий",
-      "lastName": "Васильев",
+      "role": "admin",
       "surName": "Васильевич",
-      "contractNumber": "3452142542142354",
-      "position": "Старший преподаватель",
-      "status": "Заведующий кафедры"
+      "contractNumber": "2132189492384",
+      "position": "какая-то",
+      "status": "какая-то"
     }
   ],
   "modules": [
@@ -35,15 +20,7 @@
       "title": "МОДУЛЬ 1",
       "seoTitle": "title",
       "seoDescription": "description",
-      "submodules": [
-        {
-          "title": "Подмодуль 1",
-          "id": 1,
-          "seoTitle": "текст",
-          "seoDescription": "текст",
-          "description": "описание "
-        }
-      ],
+      "submodules": [],
       "description": "Описание"
     }
   ]

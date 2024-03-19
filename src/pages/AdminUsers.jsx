@@ -14,12 +14,20 @@ import {
   TableRow,
 } from '../components/UI/table';
 import { deleteUserAction } from '../state/users/usersSlice';
+import { QuestionModal } from '../components/UI/QuestionModal';
 
 export const AdminUsers = () => {
   const { users, status, error } = useSelector((state) => state.users);
   const dispatch = useDispatch();
   if (status === STATUS.loading || status === null) return <AppLoader />;
-  
+
+  const [currentUser] = JSON.parse(localStorage.getItem('currentUser'));
+  console.log(currentUser);
+
+  const deleteUserHandlerAction = (id) => {
+    dispatch(deleteUserAction(id));
+  };
+
   return (
     <>
       <div className='max-w-5xl text-2xl'>
@@ -37,10 +45,10 @@ export const AdminUsers = () => {
                 <Table>
                   <TableHeader className='text-xl'>
                     <TableRow>
-                      <TableHead className=''>Фамилия</TableHead>
-                      <TableHead className=''>Имя</TableHead>
-                      <TableHead className=''>Почта</TableHead>
-                      <TableHead className=''>Действия</TableHead>
+                      <TableHead>Фамилия</TableHead>
+                      <TableHead>Имя</TableHead>
+                      <TableHead>Почта</TableHead>
+                      <TableHead>Действия</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -61,14 +69,11 @@ export const AdminUsers = () => {
                               <Button variant={'secondary'}>Редактировать</Button>
                             </Link>
                           </TableCell>
-                          <TableCell className=''>
-                            <Button
-                              onClick={() => dispatch(deleteUserAction(id))}
-                              variant={'secondary'}
-                            >
-                              Удалить
-                            </Button>
-                          </TableCell>
+                          {currentUser.id !== id && (
+                            <TableCell>
+                              <QuestionModal action={deleteUserHandlerAction} id={id} type='user' />
+                            </TableCell>
+                          )}
                         </>
                       </TableRow>
                     ))}
