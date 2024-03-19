@@ -54,5 +54,3 @@ export const AddModal = ({ buttonTitle, title, fieldsConfig, actionHandler }) =>
     </Dialog>
   );
 };
-
-// // В компоненте AddModuleModal и AddSubmoduleModal передаем конфигурацию полей через пропсы:

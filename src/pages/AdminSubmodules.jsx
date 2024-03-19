@@ -39,7 +39,7 @@ export const AdminSubmodules = () => {
         {error ? (
           <div className='mb-4'>Ошибка на стороне сервера: {error}</div>
         ) : module.submodules.length === 0 ? (
-          <div className='text-3xl mb-4'>Нет подмодулей</div>
+          <div className='text-2xl mb-4'>Нет подмодулей</div>
         ) : (
           <>
             {status === STATUS.success && (
@@ -60,7 +60,9 @@ export const AdminSubmodules = () => {
                         </Link>
                       </TableCell>
                       <TableCell>
-                        <Button variant={'secondary'}>Редактировать</Button>
+                        <Link to={`/admin/editSubmodule/${submodule.id}`}>
+                          <Button variant={'secondary'}>Редактировать</Button>
+                        </Link>
                       </TableCell>
                       <TableCell className='text-right'>
                         <Button

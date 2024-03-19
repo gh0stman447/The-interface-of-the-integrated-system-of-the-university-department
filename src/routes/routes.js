@@ -12,6 +12,7 @@ import { ViewUser } from '../pages/ViewUser';
 import { EditUser } from '../pages/EditUser';
 import { AdminSubmodules } from '../pages/AdminSubmodules';
 import { ViewSubmodule } from '../pages/ViewSubmodule';
+import { EditSubmodule } from '../pages/EditSubmodule';
 
 const routes = [
   {
@@ -58,6 +59,10 @@ const routes = [
       {
         path: '/admin/viewSubmodule/:id',
         element: <ViewSubmodule />,
+      },
+      {
+        path: '/admin/editSubmodule/:id',
+        element: <EditSubmodule />,
       },
       {
         path: '/admin/editUser/:id',

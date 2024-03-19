@@ -24,7 +24,13 @@ export const ViewSubmodule = () => {
 
   return (
     <>
-      <div>Submodule "{submodule.title}"</div>
+      <h1 className='text-2xl mb-8'>Информация о подмодуле</h1>
+      <div className='flex flex-col gap-4'>
+        <p>Название: {submodule.title}</p>
+        <p>Описание: {submodule.description}</p>
+        <p>SEO метатег title: {submodule.seoTitle}</p>
+        <p>SEO метатег description: {submodule.seoDescription}</p>
+      </div>
       <Link to={`/admin/submodules/${_module.id}`}>
         <Button variant={'secondary'} className='mt-10'>
           Назад

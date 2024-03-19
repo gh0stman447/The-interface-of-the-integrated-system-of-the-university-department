@@ -18,6 +18,7 @@ export const EditModule = () => {
     ...module,
   });
 
+  console.log(moduleData);
   useEffect(() => {
     setModuleData({
       ...module,

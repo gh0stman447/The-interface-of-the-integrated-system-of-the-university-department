@@ -16,6 +16,8 @@ export const ViewModule = () => {
       <div className='flex flex-col gap-y-4'>
         <p>Название модуля: {module.title}</p>
         <p>Описание модуля: {module.description}</p>
+        <p>SEO метатег title: {module.seoTitle}</p>
+        <p>SEO метатег description: {module.seoDescription}</p>
         <p>Количество подмодулей: {module.submodules.length}</p>
         {module.submodules.length ? (
           <p>

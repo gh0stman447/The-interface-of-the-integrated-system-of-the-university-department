@@ -79,7 +79,7 @@ export const addSubmoduleAction = createAsyncThunk(
       acc.push(...module.submodules);
       return acc;
     }, []);
-    
+
     const newSubmoduleId =
       allSubmodules.length > 0
         ? Math.max(...allSubmodules.map((submodule) => submodule.id)) + 1
@@ -123,6 +123,23 @@ export const deleteSubmoduleAction = createAsyncThunk(
     dispatch(getModuleListAction());
   },
 );
+
+export const updateSubmoduleAction = createAsyncThunk(
+  'module/updateModuleListAction',
+  async ({ submoduleId, moduleData, submoduleData }, { dispatch, getState }) => {
+    const updatedSubmodules = moduleData.submodules.map((submodule) =>
+      submodule.id == submoduleId ? { ...submodule, ...submoduleData } : submodule,
+    );
+    const updatedModule = {
+      ...moduleData,
+      submodules: updatedSubmodules,
+    };
+
+    await putModuleApi(moduleData.id, updatedModule);
+    dispatch(getModuleListAction());
+  },
+);
+
 const modulesSlice = createSlice({
   name: 'modules',
   initialState,

@@ -33,32 +33,18 @@
     {
       "id": "9779",
       "title": "МОДУЛЬ 1",
-      "seoTitle": "",
-      "seoDescription": "",
+      "seoTitle": "title",
+      "seoDescription": "description",
       "submodules": [
         {
-          "title": "213",
-          "description": "213",
+          "title": "Подмодуль 1",
           "id": 1,
-          "seoTitle": "",
-          "seoDescription": ""
+          "seoTitle": "текст",
+          "seoDescription": "текст",
+          "description": "описание "
         }
-      ]
-    },
-    {
-      "id": "2922",
-      "title": "МОДУЛЬ 2",
-      "seoTitle": "",
-      "seoDescription": "",
-      "submodules": []
-    },
-    {
-      "id": "1e01",
-      "title": "123123",
-      "description": "12321",
-      "seoTitle": "",
-      "seoDescription": "",
-      "submodules": []
+      ],
+      "description": "Описание"
     }
   ]
 }
