@@ -7,17 +7,20 @@ import { Toaster } from '../components/UI/sonner';
 import { toast } from 'sonner';
 import { updateUserAction } from '../state/users/usersSlice';
 import { AppLoader } from '../components/UI/loader';
+import { RoleModal } from '../components/UI/RoleModal';
+import { AddModal } from '../components/UI/AddModal';
 
 export const EditUser = () => {
   const { id } = useParams();
 
   const user = useSelector((state) => state.users.users.find((user) => user.id == id));
 
-  const dispatch = useDispatch();
-
   const [userData, setUserData] = useState({
     ...user,
   });
+  const [selectedRole, setSelectedRole] = useState(null);
+
+  const dispatch = useDispatch();
 
   const saveUserHandler = (userData) => {
     toast('Изменения сохранены', {
@@ -30,7 +33,7 @@ export const EditUser = () => {
     dispatch(
       updateUserAction({
         id: id,
-        userData: userData,
+        userData: { ...userData, role: selectedRole },
       }),
     );
   };
@@ -39,6 +42,7 @@ export const EditUser = () => {
     setUserData({
       ...user,
     });
+    if (user) setSelectedRole(user.role);
   }, [user]);
 
   if (!user) return <AppLoader />;
@@ -111,9 +115,9 @@ export const EditUser = () => {
           />
         </div>
       </div>
-      <Button onClick={() => {}} className={'mt-8'} variant={'secondary'}>
-        Назначить роль
-      </Button>
+
+      <RoleModal selectedRole={selectedRole} setSelectedRole={setSelectedRole} />
+
       <div className='flex items-center gap-4'>
         <Link to='/admin/users'>
           <Button className={'my-10'} variant={'secondary'}>

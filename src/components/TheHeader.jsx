@@ -5,6 +5,7 @@ import { TheAvatar } from './TheAvatar';
 export const TheHeader = ({ toggleScrolling }) => {
   const [{ firstName, lastName }] = JSON.parse(localStorage.getItem('currentUser'));
   const userName = `${firstName} ${lastName}`;
+
   return (
     <header className='bg-[#070707] flex flex-1 py-3 px-8 justify-between sticky top-0 z-20'>
       <div className='flex gap-4 items-center'>

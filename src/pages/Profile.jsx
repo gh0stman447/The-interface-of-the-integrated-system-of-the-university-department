@@ -6,6 +6,7 @@ export const Profile = () => {
   const [{ firstName, lastName, surName, contractNumber, status, position, role }] = JSON.parse(
     localStorage.getItem('currentUser'),
   );
+  
   const navigate = useNavigate();
 
   return (

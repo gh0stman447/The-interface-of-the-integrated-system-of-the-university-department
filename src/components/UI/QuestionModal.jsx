@@ -24,9 +24,9 @@ export const QuestionModal = ({ action, id, type }) => {
           {type === 'user' ? (
             <p className='text-2xl'>Вы действительно хотете удалить пользователя?</p>
           ) : type === 'module' ? (
-            <p className='text-2xl'>Вы действительно хотете удалить модуль?</p>
+            <p className='text-2xl'>Вы действительно хотете удалить деятельность?</p>
           ) : (
-            <p className='text-2xl'>Вы действительно хотете удалить подмодуль?</p>
+            <p className='text-2xl'>Вы действительно хотете удалить модуль?</p>
           )}
         </DialogHeader>
         <DialogFooter>

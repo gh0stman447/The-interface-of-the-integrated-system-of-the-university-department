@@ -2,26 +2,54 @@
   "users": [
     {
       "id": "82a3",
-      "login": "vasya",
-      "password": "vasy",
+      "login": "vasya1",
+      "password": "vasya1",
       "email": "vasya@bk.ru",
-      "lastName": "Василье",
-      "firstName": "Василий",
-      "role": "admin",
+      "lastName": "Вася21321",
+      "firstName": "Вася2132",
+      "role": "Администратор",
       "surName": "Васильевич",
       "contractNumber": "2132189492384",
       "position": "какая-то",
       "status": "какая-то"
+    },
+    {
+      "id": "df82",
+      "login": "login",
+      "password": "passowd",
+      "email": "123@bk.ru",
+      "lastName": "Фамилия",
+      "firstName": "Имя",
+      "surName": "Отчество",
+      "contractNumber": "123203423094",
+      "position": "Должность",
+      "status": "Статус",
+      "role": "Заведующий"
     }
   ],
   "modules": [
     {
-      "id": "9779",
-      "title": "МОДУЛЬ 1",
-      "seoTitle": "title",
-      "seoDescription": "description",
-      "submodules": [],
-      "description": "Описание"
+      "id": "26f2",
+      "title": "Методические работы",
+      "description": "Описание",
+      "seoTitle": "",
+      "seoDescription": "",
+      "submodules": [
+        {
+          "title": "Модуль 1",
+          "description": "Описание модуля 1",
+          "id": 1,
+          "seoTitle": "",
+          "seoDescription": ""
+        },
+        {
+          "title": "Модуль 2",
+          "description": "Описание модуля 2",
+          "id": 2,
+          "seoTitle": "",
+          "seoDescription": ""
+        }
+      ]
     }
   ]
 }

@@ -1,4 +1,7 @@
 export const roles = {
-  admin: 'admin',
-  user: 'user',
+  admin: 'Администратор',
+  methodist: 'Методист',
+  educationalSupport: 'Учебно-вспомогательный',
+  manager: 'Заведующий',
+  teacher: 'Преподаватель',
 };

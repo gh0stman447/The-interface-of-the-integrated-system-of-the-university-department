@@ -29,20 +29,20 @@ export const AdminModules = () => {
 
   return (
     <div className='max-w-4xl text-2xl'>
-      <h1>Панель администратора - Модули</h1>
+      <h1>Панель администратора - Деятельности</h1>
       <AddModuleModal />
 
       {error ? (
         <div className='mb-4'>Ошибка на стороне сервера: {error}</div>
       ) : modules.length === 0 ? (
-        <div className='text-3xl mb-4'>Нет модулей</div>
+        <div className='text-3xl mb-4'>Нет деятельностей</div>
       ) : (
         <>
           {status === STATUS.success && (
             <Table>
               <TableHeader className='text-xl'>
                 <TableRow>
-                  <TableHead className='w-full'>Наименование модуля</TableHead>
+                  <TableHead className='w-full'>Наименование деятельности</TableHead>
                   <TableHead>Действия</TableHead>
                 </TableRow>
               </TableHeader>
@@ -66,7 +66,7 @@ export const AdminModules = () => {
                       </TableCell>
                       <TableCell>
                         <Link to={`/admin/submodules/${id}`}>
-                          <Button variant={'secondary'}>Перейти к подмодулям</Button>
+                          <Button variant={'secondary'}>Перейти к модулям</Button>
                         </Link>
                       </TableCell>
                     </Fragment>

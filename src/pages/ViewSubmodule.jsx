@@ -24,7 +24,7 @@ export const ViewSubmodule = () => {
 
   return (
     <>
-      <h1 className='text-2xl mb-8'>Информация о подмодуле</h1>
+      <h1 className='text-2xl mb-8'>Информация о модуле</h1>
       <div className='flex flex-col gap-4'>
         <p>Название: {submodule.title}</p>
         <p>Описание: {submodule.description}</p>

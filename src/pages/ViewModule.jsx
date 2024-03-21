@@ -14,14 +14,14 @@ export const ViewModule = () => {
     <div>
       <h1 className='text-2xl mb-8'>Информация о модуле</h1>
       <div className='flex flex-col gap-y-4'>
-        <p>Название модуля: {module.title}</p>
-        <p>Описание модуля: {module.description}</p>
+        <p>Название деятельности: {module.title}</p>
+        <p>Описание деятельности: {module.description}</p>
         <p>SEO метатег title: {module.seoTitle}</p>
         <p>SEO метатег description: {module.seoDescription}</p>
-        <p>Количество подмодулей: {module.submodules.length}</p>
+        <p>Количество модулей: {module.submodules.length}</p>
         {module.submodules.length ? (
           <p>
-            Подмодули:
+            Модули:
             {module.submodules.map((submodule) => (
               <span key={submodule.id}> {submodule.title},</span>
             ))}

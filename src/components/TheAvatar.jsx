@@ -117,7 +117,7 @@ export const TheAvatar = ({ toggleScrolling }) => {
           onClick={closeContextMenu}
           ref={contextMenuRef}
           classes={menuClasses}
-          menuItems={role === roles.admin.toLocaleLowerCase() ? menuAdminItems : menuUserItems}
+          menuItems={role === roles.admin ? menuAdminItems : menuUserItems}
         />
       )}
     </a>

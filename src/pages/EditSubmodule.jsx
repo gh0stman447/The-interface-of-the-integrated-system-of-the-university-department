@@ -55,17 +55,17 @@ export const EditSubmodule = () => {
 
   return (
     <>
-      <h1 className='text-2xl'>Изменение подмодуля "{modifiableSubmodule.title}"</h1>
+      <h1 className='text-2xl'>Изменение модуля "{modifiableSubmodule.title}"</h1>
       <div className='flex flex-col max-w-screen-lg space-y-6'>
         <div className='flex flex-col gap-y-2 mt-8'>
-          <p>Название подмодуля</p>
+          <p>Название модуля</p>
           <Input
             value={submoduleData.title}
             onChange={(e) => setSubmoduleData({ ...submoduleData, title: e.target.value })}
           />
         </div>
         <div className='flex flex-col gap-y-2'>
-          <p>Описание подмодуля</p>
+          <p>Описание модуля</p>
           <Input
             value={submoduleData.description}
             onChange={(e) => setSubmoduleData({ ...submoduleData, description: e.target.value })}

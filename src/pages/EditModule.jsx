@@ -43,17 +43,17 @@ export const EditModule = () => {
 
   return (
     <>
-      <h1 className='text-2xl'>Изменение модуля "{module.title}"</h1>
+      <h1 className='text-2xl'>Изменение деятельности "{module.title}"</h1>
       <div className='flex flex-col max-w-screen-lg space-y-6'>
         <div className='flex flex-col gap-y-2 mt-8'>
-          <p>Название модуля</p>
+          <p>Название деятельности</p>
           <Input
             value={moduleData.title}
             onChange={(e) => setModuleData({ ...moduleData, title: e.target.value })}
           />
         </div>
         <div className='flex flex-col gap-y-2'>
-          <p>Описание модуля</p>
+          <p>Описание деятельности</p>
           <Input
             value={moduleData.description}
             onChange={(e) => setModuleData({ ...moduleData, description: e.target.value })}

@@ -9,14 +9,14 @@ export const AddModuleModal = () => {
   };
 
   const moduleFieldsConfig = [
-    { label: 'Название модуля', name: 'title' },
-    { label: 'Описание модуля', name: 'description' },
+    { label: 'Название деятельности', name: 'title' },
+    { label: 'Описание деятельности', name: 'description' },
   ];
 
   return (
     <AddModal
-      buttonTitle='Добавить модуль'
-      title='Добавление модуля'
+      buttonTitle='Добавить деятельность'
+      title='Добавление деятельности'
       fieldsConfig={moduleFieldsConfig}
       actionHandler={addModuleHandler}
     />

@@ -10,7 +10,7 @@ export const NavItem = ({ icon, children: title, id, role }) => {
 
   return (
     <NavLink
-      style={{ pointerEvents: role.toLowerCase() === roles.admin ? 'none' : 'auto' }}
+      style={{ pointerEvents: role === roles.admin ? 'none' : 'auto' }}
       to={`/submodule/${id}`}
       className={({ isActive }) => (isActive ? itemClasses.isActive : itemClasses.notIsActive)}
     >

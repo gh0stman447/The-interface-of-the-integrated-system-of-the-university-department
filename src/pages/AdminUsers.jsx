@@ -19,10 +19,10 @@ import { QuestionModal } from '../components/UI/QuestionModal';
 export const AdminUsers = () => {
   const { users, status, error } = useSelector((state) => state.users);
   const dispatch = useDispatch();
+
   if (status === STATUS.loading || status === null) return <AppLoader />;
 
   const [currentUser] = JSON.parse(localStorage.getItem('currentUser'));
-  console.log(currentUser);
 
   const deleteUserHandlerAction = (id) => {
     dispatch(deleteUserAction(id));
@@ -32,7 +32,6 @@ export const AdminUsers = () => {
     <>
       <div className='max-w-5xl text-2xl'>
         <h1>Панель администратора - Пользователи</h1>
-
         {error ? (
           <div>Ошибка на стороне сервера: {error}</div>
         ) : users.length === 0 ? (
@@ -58,7 +57,6 @@ export const AdminUsers = () => {
                           <TableCell className='font-medium'>{firstName}</TableCell>
                           <TableCell className='font-medium'>{lastName}</TableCell>
                           <TableCell className='font-medium'>{email}</TableCell>
-
                           <TableCell>
                             <Link to={`/admin/user/${id}`}>
                               <Button variant={'secondary'}>Просмотреть</Button>

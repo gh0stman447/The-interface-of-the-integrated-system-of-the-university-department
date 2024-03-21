@@ -35,19 +35,19 @@ export const AdminSubmodules = () => {
   return (
     <>
       <div className='max-w-4xl text-2xl '>
-        <h1>Панель администратора - Подмодули модуля "{module.title}"</h1>
+        <h1>Панель администратора - Модули деятельности"{module.title}"</h1>
         <AddSubmoduleModal id={id} />
         {error ? (
           <div className='mb-4'>Ошибка на стороне сервера: {error}</div>
         ) : module.submodules.length === 0 ? (
-          <div className='text-2xl mb-4'>Нет подмодулей</div>
+          <div className='text-2xl mb-4'>Нет модулей</div>
         ) : (
           <>
             {status === STATUS.success && (
               <Table>
                 <TableHeader className='text-xl'>
                   <TableRow>
-                    <TableHead className='w-full'>Наименование подмодуля</TableHead>
+                    <TableHead className='w-full'>Наименование модуля</TableHead>
                     <TableHead className=''>Действия</TableHead>
                   </TableRow>
                 </TableHeader>
