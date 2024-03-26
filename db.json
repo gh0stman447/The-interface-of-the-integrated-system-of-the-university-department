@@ -24,7 +24,7 @@
       "contractNumber": "123203423094",
       "position": "Должность",
       "status": "Статус",
-      "role": "Заведующий"
+      "role": "Преподаватель"
     }
   ],
   "modules": [
@@ -50,6 +50,14 @@
           "seoDescription": ""
         }
       ]
+    },
+    {
+      "id": "931d",
+      "title": "1",
+      "description": "1",
+      "seoTitle": "1§312",
+      "seoDescription": "12321",
+      "submodules": []
     }
   ]
 }
