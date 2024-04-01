@@ -1,12 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/UI/button';
+import { PasswordModal } from '../components/UI/PasswordModal';
 
 export const Profile = () => {
   const [{ firstName, lastName, surName, contractNumber, status, position, role }] = JSON.parse(
     localStorage.getItem('currentUser'),
   );
-  
+
   const navigate = useNavigate();
 
   return (
@@ -22,9 +23,7 @@ export const Profile = () => {
           <div>Должность: {position}</div>
           <div>Статус: {status}</div>
           <div>Роль: {role}</div>
-          <Button className='w-fit' variant={'secondary'}>
-            Изменить пароль
-          </Button>
+          <PasswordModal />
         </div>
       </div>
 

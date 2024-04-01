@@ -3,10 +3,10 @@
     {
       "id": "82a3",
       "login": "vasya1",
-      "password": "vasya1",
+      "password": "1234",
       "email": "vasya@bk.ru",
-      "lastName": "Вася21321",
-      "firstName": "Вася2132",
+      "lastName": "Васильев111",
+      "firstName": "Василий",
       "role": "Администратор",
       "surName": "Васильевич",
       "contractNumber": "2132189492384",
@@ -52,11 +52,10 @@
       ]
     },
     {
-      "id": "931d",
-      "title": "1",
-      "description": "1",
-      "seoTitle": "1§312",
-      "seoDescription": "12321",
+      "id": "8073",
+      "title": "Управленческая деятельность",
+      "seoTitle": "",
+      "seoDescription": "",
       "submodules": []
     }
   ]

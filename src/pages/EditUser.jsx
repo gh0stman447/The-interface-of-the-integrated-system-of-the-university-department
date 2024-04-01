@@ -23,12 +23,19 @@ export const EditUser = () => {
   const dispatch = useDispatch();
 
   const saveUserHandler = (userData) => {
+    
     toast('Изменения сохранены', {
       action: {
         label: 'Закрыть',
         onClick: () => {},
       },
     });
+    const [user] = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (userData.id === user.id) {
+      localStorage.setItem('currentUser', JSON.stringify([userData]));
+      console.log(userData);
+    }
 
     dispatch(
       updateUserAction({
