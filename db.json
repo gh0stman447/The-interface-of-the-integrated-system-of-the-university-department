@@ -3,11 +3,11 @@
     {
       "id": "82a3",
       "login": "vasya1",
-      "password": "1234",
+      "password": "12345",
       "email": "vasya@bk.ru",
       "lastName": "Васильев111",
       "firstName": "Василий",
-      "role": "Администратор",
+      "role": "Методист",
       "surName": "Васильевич",
       "contractNumber": "2132189492384",
       "position": "какая-то",
@@ -24,7 +24,7 @@
       "contractNumber": "123203423094",
       "position": "Должность",
       "status": "Статус",
-      "role": "Преподаватель"
+      "role": "Администратор"
     }
   ],
   "modules": [

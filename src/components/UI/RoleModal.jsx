@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from './button';
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTrigger,
-} from './dialog';
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTrigger } from './dialog';
 import { roles } from '../../constants/roles';
 import { toast } from 'sonner';
 
-export const RoleModal = ({ selectedRole, setSelectedRole }) => {
+export const RoleModal = ({ selectedRole, setSelectedRole, users, user: editedUser }) => {
   const [tempSelectedRole, setTempSelectedRole] = useState(selectedRole);
-
+  const adminUsers = users.filter((user) => user.role === roles.admin);
   const handleRoleSelection = (role) => {
     setTempSelectedRole(role);
   };
@@ -52,6 +45,10 @@ export const RoleModal = ({ selectedRole, setSelectedRole }) => {
         <div className='flex flex-col gap-4'>
           {Object.keys(roles).map((roleKey) => (
             <Button
+              style={{
+                pointerEvents:
+                  adminUsers.length <= 1 && editedUser.role === roles.admin ? 'none' : 'auto',
+              }}
               key={roleKey}
               variant='secondary'
               className={tempSelectedRole === roles[roleKey] ? 'bg-teal-600 hover:bg-teal-700' : ''}

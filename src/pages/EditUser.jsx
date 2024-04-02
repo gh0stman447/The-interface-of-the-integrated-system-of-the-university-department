@@ -13,17 +13,17 @@ import { AddModal } from '../components/UI/AddModal';
 export const EditUser = () => {
   const { id } = useParams();
 
-  const user = useSelector((state) => state.users.users.find((user) => user.id == id));
-
+  const users = useSelector((state) => state.users.users);
+  const user = users.find((user) => user.id == id);
   const [userData, setUserData] = useState({
     ...user,
   });
+
   const [selectedRole, setSelectedRole] = useState(null);
 
   const dispatch = useDispatch();
 
   const saveUserHandler = (userData) => {
-    
     toast('Изменения сохранены', {
       action: {
         label: 'Закрыть',
@@ -123,7 +123,12 @@ export const EditUser = () => {
         </div>
       </div>
 
-      <RoleModal selectedRole={selectedRole} setSelectedRole={setSelectedRole} />
+      <RoleModal
+        selectedRole={selectedRole}
+        setSelectedRole={setSelectedRole}
+        users={users}
+        user={user}
+      />
 
       <div className='flex items-center gap-4'>
         <Link to='/admin/users'>
