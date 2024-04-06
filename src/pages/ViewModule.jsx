@@ -12,7 +12,7 @@ export const ViewModule = () => {
   if (!module) return <AppLoader />;
   return (
     <div>
-      <h1 className='text-2xl mb-8'>Информация о модуле</h1>
+      <h1 className='text-2xl mb-8'>Информация о деятельности</h1>
       <div className='flex flex-col gap-y-4'>
         <p>Название деятельности: {module.title}</p>
         <p>Описание деятельности: {module.description}</p>

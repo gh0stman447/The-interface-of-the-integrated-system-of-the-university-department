@@ -54,8 +54,8 @@ export const AdminUsers = () => {
                     {users.map(({ id, firstName, lastName, email }) => (
                       <TableRow className='text-lg' key={id}>
                         <>
-                          <TableCell className='font-medium'>{firstName}</TableCell>
                           <TableCell className='font-medium'>{lastName}</TableCell>
+                          <TableCell className='font-medium'>{firstName}</TableCell>
                           <TableCell className='font-medium'>{email}</TableCell>
                           <TableCell>
                             <Link to={`/admin/user/${id}`}>
@@ -91,9 +91,3 @@ export const AdminUsers = () => {
     </>
   );
 };
-
-// key={user.id}
-// firstName={user.firstName}
-// lastName={user.lastName}
-// userEmail={user.email}
-// id={user.id}

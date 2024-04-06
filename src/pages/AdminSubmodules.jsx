@@ -35,7 +35,7 @@ export const AdminSubmodules = () => {
   return (
     <>
       <div className='max-w-4xl text-2xl '>
-        <h1>Панель администратора - Модули деятельности"{module.title}"</h1>
+        <h1>Панель администратора - Модули деятельности "{module.title}"</h1>
         <AddSubmoduleModal id={id} />
         {error ? (
           <div className='mb-4'>Ошибка на стороне сервера: {error}</div>

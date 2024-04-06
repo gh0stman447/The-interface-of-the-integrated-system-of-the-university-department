@@ -30,7 +30,7 @@ export const Login = () => {
   return (
     <div className='text-white h-[100vh] flex items-center justify-center mx-10'>
       <div className='bg-slate-800 border border-slate-600 rounded-sm p-8 shadow-lg backdrop-filter backdrop-blur-lg bg-opacity-30 relative flex-grow max-w-[500px]'>
-        <h1 className='text-4xl font-bold text-center '>Войти</h1>
+        <h1 className='text-4xl font-bold text-center '>Авторизация</h1>
         <form action='#' className=''>
           <div className='flex flex-col'>
             <div className='my-4'>

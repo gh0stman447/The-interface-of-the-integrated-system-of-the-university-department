@@ -2,29 +2,29 @@
   "users": [
     {
       "id": "82a3",
-      "login": "vasya1",
+      "login": "vasya",
       "password": "12345",
       "email": "vasya@bk.ru",
-      "lastName": "Васильев111",
+      "lastName": "Васильев",
       "firstName": "Василий",
-      "role": "Методист",
+      "role": "Администратор",
       "surName": "Васильевич",
       "contractNumber": "2132189492384",
-      "position": "какая-то",
-      "status": "какая-то"
+      "position": "Должность",
+      "status": "Статус"
     },
     {
       "id": "df82",
-      "login": "login",
-      "password": "passowd",
-      "email": "123@bk.ru",
-      "lastName": "Фамилия",
-      "firstName": "Имя",
-      "surName": "Отчество",
-      "contractNumber": "123203423094",
+      "login": "andrei123",
+      "password": "812478wqfk",
+      "email": "Andrei@bk.ru",
+      "lastName": "Андреев",
+      "firstName": "Андрей",
+      "surName": "Андреевич",
+      "contractNumber": "2392349234",
       "position": "Должность",
       "status": "Статус",
-      "role": "Администратор"
+      "role": "Методист"
     }
   ],
   "modules": [
@@ -54,6 +54,30 @@
     {
       "id": "8073",
       "title": "Управленческая деятельность",
+      "seoTitle": "",
+      "seoDescription": "",
+      "submodules": [
+        {
+          "title": "Модуль 1",
+          "description": "Описание",
+          "id": 3,
+          "seoTitle": "",
+          "seoDescription": ""
+        }
+      ]
+    },
+    {
+      "id": "3764",
+      "title": "Управленческие работы",
+      "description": "Описание",
+      "seoTitle": "",
+      "seoDescription": "",
+      "submodules": []
+    },
+    {
+      "id": "163a",
+      "title": "Учебные работы",
+      "description": "Описание",
       "seoTitle": "",
       "seoDescription": "",
       "submodules": []
