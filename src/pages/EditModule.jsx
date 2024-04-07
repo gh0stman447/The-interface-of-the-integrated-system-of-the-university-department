@@ -7,6 +7,7 @@ import { Toaster } from '../components/UI/sonner';
 import { toast } from 'sonner';
 import { updateModuleAction } from '../state/modulesNav/modulesSlice';
 import { AppLoader } from '../components/UI/loader';
+import { roles } from '../constants/roles';
 
 export const EditModule = () => {
   const { id } = useParams();
@@ -74,6 +75,29 @@ export const EditModule = () => {
           />
         </div>
       </div>
+      <p className='text-xl mt-8 mb-2'>Настройка доступа:</p>
+      {Object.entries(roles).map(([roleKey, roleLabel]) => {
+        if (roleLabel !== roles.admin) {
+          return (
+            <div key={roleLabel} className='mb-2 flex gap-2'>
+              <input
+                type='checkbox'
+                checked={moduleData.roleAccess && moduleData.roleAccess[roleKey]}
+                onChange={(e) =>
+                  setModuleData({
+                    ...moduleData,
+                    roleAccess: {
+                      ...moduleData.roleAccess,
+                      [roleKey]: e.target.checked,
+                    },
+                  })
+                }
+              ></input>
+              <label>{roleLabel}</label>
+            </div>
+          );
+        }
+      })}
       <div className='flex items-center gap-4'>
         <Link to='/admin/modules'>
           <Button variant={'secondary'} className='my-10 w-fit'>

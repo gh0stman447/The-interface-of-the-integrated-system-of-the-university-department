@@ -16,12 +16,6 @@ const initialState = {
   error: null,
 };
 
-// export const itemsDict = new Map([
-//   [1, <IoBookSharp className='h-8 w-8' />],
-//   [2, <HiAcademicCap className='h-8 w-8' />],
-//   [3, <GiBookshelf className='h-8 w-8' />],
-// ]);
-
 export const getModuleListAction = createAsyncThunk(
   'module/getModuleListAction',
   async (_, { rejectWithValue }) => {
@@ -40,13 +34,15 @@ export const getModuleListAction = createAsyncThunk(
 export const addModuleAction = createAsyncThunk(
   'module/postModuleListAction',
   async (payload, { dispatch }) => {
-    const { description, title } = payload;
+    const { description, title, roles } = payload;
+    console.log(payload);
     const newModule = {
       title,
       description,
       seoTitle: '',
       seoDescription: '',
       submodules: [],
+      roleAccess: roles,
     };
 
     await postModuleApi(newModule);

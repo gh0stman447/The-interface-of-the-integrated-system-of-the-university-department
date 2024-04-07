@@ -30,7 +30,7 @@
   "modules": [
     {
       "id": "26f2",
-      "title": "Методические работы",
+      "title": "Методическая работа",
       "description": "Описание",
       "seoTitle": "",
       "seoDescription": "",
@@ -49,38 +49,63 @@
           "seoTitle": "",
           "seoDescription": ""
         }
-      ]
-    },
-    {
-      "id": "8073",
-      "title": "Управленческая деятельность",
-      "seoTitle": "",
-      "seoDescription": "",
-      "submodules": [
-        {
-          "title": "Модуль 1",
-          "description": "Описание",
-          "id": 3,
-          "seoTitle": "",
-          "seoDescription": ""
-        }
-      ]
+      ],
+      "roleAccess": {
+        "teacher": false,
+        "manager": true,
+        "methodist": true,
+        "educationalSupport": false
+      }
     },
     {
       "id": "3764",
-      "title": "Управленческие работы",
+      "title": "Управленческая работа",
       "description": "Описание",
       "seoTitle": "",
       "seoDescription": "",
-      "submodules": []
+      "submodules": [],
+      "roleAccess": {
+        "methodist": false,
+        "educationalSupport": true,
+        "manager": true
+      }
     },
     {
       "id": "163a",
-      "title": "Учебные работы",
+      "title": "Учебная работа",
       "description": "Описание",
       "seoTitle": "",
       "seoDescription": "",
-      "submodules": []
+      "submodules": [],
+      "roleAccess": {
+        "manager": true,
+        "teacher": true
+      }
+    },
+    {
+      "id": "93ad",
+      "title": "Научная работа",
+      "description": "",
+      "seoTitle": "",
+      "seoDescription": "",
+      "submodules": [],
+      "roleAccess": {
+        "teacher": true,
+        "manager": true
+      }
+    },
+    {
+      "id": "6da9",
+      "title": "Организационная работа",
+      "description": "12312321",
+      "seoTitle": "",
+      "seoDescription": "",
+      "submodules": [],
+      "roleAccess": {
+        "methodist": false,
+        "educationalSupport": true,
+        "manager": true
+      }
     }
   ]
 }

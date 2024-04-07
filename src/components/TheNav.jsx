@@ -8,26 +8,26 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '../components/UI/accordion';
+import { roles } from '../constants/roles';
 
 export const TheNav = () => {
   const navItems = useSelector((state) => state.modules.modules);
   const [{ role }] = JSON.parse(localStorage.getItem('currentUser'));
+  const isAdmin = role === roles.admin;
 
   if (navItems.status === STATUS.loading || navItems.status === null) return <AppLoader />;
+
+  let itemsToDisplay = isAdmin ? navItems : filterItemsForRole(navItems, role);
 
   return (
     <nav className='overflow-auto'>
       <Accordion type='single' collapsible>
-        {navItems.map(({ title, id, submodules }, i) => (
+        {itemsToDisplay.map(({ title, id, submodules }, i) => (
           <AccordionItem value={`item-${i}`} key={id}>
             <AccordionTrigger>{title}</AccordionTrigger>
             {submodules.map(({ title, id }) => (
               <AccordionContent key={id}>
-                <NavItem
-                  role={role}
-                  // icon={id > itemsDict.size ? itemsDict.get(itemsDict.size) : itemsDict.get(id)}
-                  id={id}
-                >
+                <NavItem role={role} id={id}>
                   {title}
                 </NavItem>
               </AccordionContent>
@@ -37,4 +37,12 @@ export const TheNav = () => {
       </Accordion>
     </nav>
   );
+};
+
+const filterItemsForRole = (navItems, userRole) => {
+  const roleEng = Object.keys(roles).find((key) => roles[key] === userRole);
+  return navItems.filter((navItem) => {
+    const { roleAccess } = navItem;
+    return roleAccess[roleEng];
+  });
 };

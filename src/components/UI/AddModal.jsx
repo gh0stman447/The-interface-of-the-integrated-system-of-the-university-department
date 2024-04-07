@@ -9,17 +9,24 @@ import {
 } from './dialog';
 import { Button } from './button';
 import { Input } from './input';
+import { roles } from '../../../src/constants/roles';
 
-export const AddModal = ({ buttonTitle, title, fieldsConfig, actionHandler }) => {
+export const AddModal = ({ buttonTitle, title, fieldsConfig, actionHandler, showCheckboxes }) => {
   const [inputData, setInputData] = useState({});
+  const [selectedRoles, setSelectedRoles] = useState({});
 
   const handleAction = () => {
-    actionHandler(inputData);
+    actionHandler({ ...inputData, roles: selectedRoles });
     setInputData({});
+    setSelectedRoles({});
   };
 
   const handleInputChange = (e, fieldName) => {
     setInputData({ ...inputData, [fieldName]: e.target.value });
+  };
+
+  const handleRoleChange = (roleKey, checked) => {
+    setSelectedRoles({ ...selectedRoles, [roleKey]: checked });
   };
 
   return (
@@ -43,6 +50,25 @@ export const AddModal = ({ buttonTitle, title, fieldsConfig, actionHandler }) =>
             </div>
           ))}
         </div>
+
+        {showCheckboxes && (
+          <div>
+            <p className='text-xl'>Настройка доступа:</p>
+            {Object.entries(roles).map(([roleKey, roleLabel]) => {
+              if (roleLabel !== roles.admin)
+                return (
+                  <div key={roleKey}>
+                    <input
+                      type='checkbox'
+                      checked={selectedRoles[roleKey]}
+                      onChange={(e) => handleRoleChange(roleKey, e.target.checked)}
+                    />
+                    <label className='ml-2'>{roleLabel}</label>
+                  </div>
+                );
+            })}
+          </div>
+        )}
         <DialogFooter>
           <DialogClose>
             <Button onClick={handleAction} className={'justify-center'} variant={'secondary'}>

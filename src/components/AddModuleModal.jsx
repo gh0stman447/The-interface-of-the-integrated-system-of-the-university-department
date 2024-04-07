@@ -15,6 +15,7 @@ export const AddModuleModal = () => {
 
   return (
     <AddModal
+      showCheckboxes={true}
       buttonTitle='Добавить деятельность'
       title='Добавление деятельности'
       fieldsConfig={moduleFieldsConfig}
