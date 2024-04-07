@@ -35,7 +35,6 @@ export const addModuleAction = createAsyncThunk(
   'module/postModuleListAction',
   async (payload, { dispatch }) => {
     const { description, title, roles } = payload;
-    console.log(payload);
     const newModule = {
       title,
       description,

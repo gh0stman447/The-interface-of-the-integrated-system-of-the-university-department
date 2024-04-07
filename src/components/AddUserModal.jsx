@@ -27,6 +27,7 @@ export const AddUserModal = () => {
       title='Добавление пользователя'
       fieldsConfig={userFieldsConfig}
       actionHandler={addUserHandler}
+      showRadioButtons={true}
     />
   );
 };

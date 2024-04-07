@@ -22,7 +22,7 @@ const AccordionTrigger = React.forwardRef(({ className, children, ...props }, re
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        'flex flex-1 items-center justify-between py-4 px-6 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180 overflow-hidden',
+        'flex flex-1 text-left justify-between py-4 px-6 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180 overflow-hidden',
         className,
       )}
       {...props}

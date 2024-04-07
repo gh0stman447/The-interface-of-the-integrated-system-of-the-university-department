@@ -36,7 +36,6 @@ export const postUserAction = createAsyncThunk(
   async (payload, { dispatch }) => {
     const newUser = {
       ...payload,
-      role: '',
     };
 
     await postUserApi(newUser);

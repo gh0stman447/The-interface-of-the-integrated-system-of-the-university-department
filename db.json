@@ -25,6 +25,19 @@
       "position": "Должность",
       "status": "Статус",
       "role": "Методист"
+    },
+    {
+      "id": "1e80",
+      "login": "wqd",
+      "password": "qwd",
+      "email": "qwdqw",
+      "lastName": "dqwdqw",
+      "firstName": "dqwd",
+      "surName": "qwdqwq",
+      "contractNumber": "dqwd",
+      "position": "qwdwqd",
+      "status": "qwdw",
+      "role": "Методист"
     }
   ],
   "modules": [
