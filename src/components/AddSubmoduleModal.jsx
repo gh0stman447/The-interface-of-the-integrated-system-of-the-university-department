@@ -15,7 +15,7 @@ export const AddSubmoduleModal = ({ id }) => {
 
   return (
     <AddModal
-      buttonTitle='Добавить модуля'
+      buttonTitle='Добавить модуль'
       title='Добавление модуля'
       fieldsConfig={submoduleFieldsConfig}
       actionHandler={addSubmoduleHandler}

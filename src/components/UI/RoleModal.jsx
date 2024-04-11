@@ -23,7 +23,7 @@ export const RoleModal = ({ selectedRole, setSelectedRole, users, user: editedUs
     setSelectedRole(tempSelectedRole);
 
     toast(
-      `Роль пользователя назначена на "${tempSelectedRole}". Нажмите "Сохранить" для назначения роли`,
+      `Роль пользователя назначена на "${tempSelectedRole}".  Нажмите "Сохранить" для сохранения изменений.`,
       {
         action: {
           label: 'Закрыть',

@@ -16,7 +16,7 @@
     {
       "id": "df82",
       "login": "andrei123",
-      "password": "812478wqfk",
+      "password": "123456",
       "email": "Andrei@bk.ru",
       "lastName": "Андреев",
       "firstName": "Андрей",
@@ -24,20 +24,7 @@
       "contractNumber": "2392349234",
       "position": "Должность",
       "status": "Статус",
-      "role": "Методист"
-    },
-    {
-      "id": "1e80",
-      "login": "wqd",
-      "password": "qwd",
-      "email": "qwdqw",
-      "lastName": "dqwdqw",
-      "firstName": "dqwd",
-      "surName": "qwdqwq",
-      "contractNumber": "dqwd",
-      "position": "qwdwqd",
-      "status": "qwdw",
-      "role": "Методист"
+      "role": "Учебно-вспомогательный"
     }
   ],
   "modules": [

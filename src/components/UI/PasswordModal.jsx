@@ -17,11 +17,15 @@ export const PasswordModal = () => {
 
   const changePasswordHandler = () => {
     const [user] = JSON.parse(localStorage.getItem('currentUser'));
-    if (passwordForm.oldPassword === user.password) {
-      if (passwordForm.newPassword.trim() === '' || passwordForm.confirmNewPassword.trim() === '') {
-        alert('Введите данные');
+    if (passwordForm.oldPassword === user.password || passwordForm.oldPassword === '') {
+      if (
+        passwordForm.newPassword.trim() === '' ||
+        passwordForm.confirmNewPassword.trim() === '' ||
+        passwordForm.oldPassword.trim() === ''
+      ) {
+        alert('Введите данные.');
       } else if (passwordForm.newPassword !== passwordForm.confirmNewPassword) {
-        alert('Введите одинаковые данные для нового пароля');
+        alert('Введите одинаковые данные для нового пароля.');
       } else {
         localStorage.setItem(
           'currentUser',
@@ -35,7 +39,7 @@ export const PasswordModal = () => {
           }),
         );
 
-        toast('Пароль успешно изменён', {
+        toast('Пароль успешно изменён.', {
           action: {
             label: 'Закрыть',
             onClick: () => {},
@@ -43,7 +47,7 @@ export const PasswordModal = () => {
         });
       }
     } else {
-      alert('Старый пароль неверный');
+      alert('Старый пароль неверный.');
     }
   };
 

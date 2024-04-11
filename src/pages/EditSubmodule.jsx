@@ -36,7 +36,7 @@ export const EditSubmodule = () => {
   }, [modifiableSubmodule]);
 
   const saveSubmoduleHandler = (submoduleData) => {
-    toast('Изменения сохранены', {
+    toast('Изменения сохранены.', {
       action: {
         label: 'Закрыть',
         onClick: () => {},

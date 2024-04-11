@@ -26,7 +26,7 @@ export const EditModule = () => {
   }, [module]);
 
   const saveModuleHandler = (moduleData) => {
-    toast('Изменения сохранены', {
+    toast('Изменения сохранены.', {
       action: {
         label: 'Закрыть',
         onClick: () => {},
@@ -75,7 +75,7 @@ export const EditModule = () => {
           />
         </div>
       </div>
-      <p className='text-xl mt-8 mb-2'>Настройка доступа:</p>
+      <p className='text-xl mt-8 mb-4'>Настройка доступа:</p>
       {Object.entries(roles).map(([roleKey, roleLabel]) => {
         if (roleLabel !== roles.admin) {
           return (

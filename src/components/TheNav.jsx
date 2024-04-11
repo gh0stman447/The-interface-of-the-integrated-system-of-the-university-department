@@ -43,6 +43,7 @@ const filterItemsForRole = (navItems, userRole) => {
   const roleEng = Object.keys(roles).find((key) => roles[key] === userRole);
   return navItems.filter((navItem) => {
     const { roleAccess } = navItem;
-    return roleAccess[roleEng];
+    if (roleAccess) return roleAccess[roleEng];
+    return null;
   });
 };
