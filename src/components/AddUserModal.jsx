@@ -17,8 +17,6 @@ export const AddUserModal = () => {
     { label: 'Отчество', name: 'surName' },
     { label: 'Номер договора', name: 'contractNumber' },
     { label: 'Должность', name: 'position' },
-    { label: 'Статус', name: 'status' },
-    // Другие поля по желанию
   ];
 
   return (

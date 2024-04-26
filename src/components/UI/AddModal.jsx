@@ -24,10 +24,16 @@ export const AddModal = ({
   const [selectedRole, setSelectedRole] = useState('');
 
   const handleAction = () => {
-    actionHandler({ ...inputData, role: selectedRole });
+    if (showCheckboxes) {
+      actionHandler({ ...inputData, roleAccess: selectedRoles });
+      setSelectedRoles({});
+    } else if (showRadioButtons) {
+      actionHandler({ ...inputData, role: selectedRole });
+      setSelectedRole('');
+    } else {
+      actionHandler({ ...inputData });
+    }
     setInputData({});
-    setSelectedRoles({});
-    setSelectedRole('');
   };
 
   const handleInputChange = (e, fieldName) => {
@@ -43,15 +49,15 @@ export const AddModal = ({
       <DialogTrigger className={'my-6'}>
         <Button variant={'secondary'}>{buttonTitle}</Button>
       </DialogTrigger>
-      <DialogContent className={'bg-[#121212] text-white overflow-y-scroll max-h-screen'}>
+      <DialogContent className={'dark:bg-[#121212] dark:text-white overflow-y-scroll max-h-[95%]'}>
         <DialogHeader>
           <p className='text-2xl'>{title}</p>
         </DialogHeader>
         <div className='overflow-y-auto'>
           <div className='grid gap-4 py-4'>
             {fieldsConfig.map((field, index) => (
-              <div key={index} className='flex items-center gap-4'>
-                <p className='text-left w-1/2'>{field.label}</p>
+              <div key={index} className='flex items-center gap-4 p-2'>
+                <p className='text-left w-2/5'>{field.label}</p>
                 <Input
                   value={inputData[field.name]}
                   onChange={(e) => handleInputChange(e, field.name)}
@@ -66,7 +72,7 @@ export const AddModal = ({
               {Object.entries(roles).map(([roleKey, roleLabel]) => {
                 if (roleLabel !== roles.admin)
                   return (
-                    <div key={roleKey}>
+                    <div key={roleKey} className='ml-2'>
                       <input
                         type='checkbox'
                         checked={selectedRoles[roleKey]}

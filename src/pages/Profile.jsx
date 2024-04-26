@@ -4,7 +4,7 @@ import { Button } from '../components/UI/button';
 import { PasswordModal } from '../components/UI/PasswordModal';
 
 export const Profile = () => {
-  const [{ firstName, lastName, surName, contractNumber, status, position, role }] = JSON.parse(
+  const [{ firstName, lastName, surName, contractNumber, position, role }] = JSON.parse(
     localStorage.getItem('currentUser'),
   );
 
@@ -21,7 +21,6 @@ export const Profile = () => {
           </div>
           <div>Номер договора: {contractNumber}</div>
           <div>Должность: {position}</div>
-          <div>Статус: {status}</div>
           <div>Роль: {role}</div>
           <PasswordModal />
         </div>

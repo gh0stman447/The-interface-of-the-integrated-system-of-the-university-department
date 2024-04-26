@@ -7,6 +7,6 @@ export const TheFooterList = () => {
       {['Cookies', 'Privacy'].map((label) => (
         <FooterListItem key={label}>{label}</FooterListItem>
       ))}
-    </ul>
+     </ul>
   );
 };

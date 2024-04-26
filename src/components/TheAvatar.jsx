@@ -33,9 +33,12 @@ export const TheAvatar = ({ toggleScrolling }) => {
   const [isContextMenuOpen, setIsContextMenuOpen] = useState(false);
   const contextMenuRef = useRef(null);
 
-  const colorClasses = isContextMenuOpen ? 'text-[#272727]' : 'text-white hover:text-[#272727]';
-  const menuClasses = `bg-[#282828] text-[#eaeaea] text-sm p-1 rounded shadow-xl fixed z-20
-    cursor-default whitespace-nowrap divide-y divide-[#3e3e3e]`;
+  const colorClasses = isContextMenuOpen
+    ? 'text-stone-400 dark:text-[#272727]'
+    : 'dark:text-white hover:text-stone-400 dark:hover:text-[#272727]';
+
+  const menuClasses = `bg-white dark:bg-[#282828] dark:text-[#eaeaea] text-sm p-1 rounded shadow-xl fixed z-20
+    cursor-default whitespace-nowrap divide-y dark:divide-[#3e3e3e]`;
 
   function updateContextMenuHorizontalPosition() {
     const menuWidth = contextMenuRef.current.offsetWidth;

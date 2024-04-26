@@ -22,7 +22,7 @@ export const TheContextMenuItem = ({ children: label, onClick: closeContextMenu 
   return (
     <>
       <li onClick={handleClick}>
-        <button className='w-full p-3 text-left hover:text-white hover:bg-[#3e3e3e] cursor-default hover:cursor-pointer'>
+        <button className='w-full p-3 text-left hover:bg-gray-200 dark:hover:bg-[#3e3e3e] cursor-default hover:cursor-pointer'>
           {label}
         </button>
       </li>

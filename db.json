@@ -10,8 +10,7 @@
       "role": "Администратор",
       "surName": "Васильевич",
       "contractNumber": "2132189492384",
-      "position": "Должность",
-      "status": "Статус"
+      "position": "Должность"
     },
     {
       "id": "df82",
@@ -23,8 +22,7 @@
       "surName": "Андреевич",
       "contractNumber": "2392349234",
       "position": "Должность",
-      "status": "Статус",
-      "role": "Учебно-вспомогательный"
+      "role": "Методист"
     }
   ],
   "modules": [
@@ -76,7 +74,22 @@
       "description": "Описание",
       "seoTitle": "",
       "seoDescription": "",
-      "submodules": [],
+      "submodules": [
+        {
+          "title": "12321",
+          "description": "3231",
+          "id": 4,
+          "seoTitle": "",
+          "seoDescription": ""
+        },
+        {
+          "title": "1232",
+          "description": "12312",
+          "id": 5,
+          "seoTitle": "",
+          "seoDescription": ""
+        }
+      ],
       "roleAccess": {
         "manager": true,
         "teacher": true
@@ -100,7 +113,15 @@
       "description": "12312321",
       "seoTitle": "",
       "seoDescription": "",
-      "submodules": [],
+      "submodules": [
+        {
+          "title": "213",
+          "description": "12321",
+          "id": 3,
+          "seoTitle": "",
+          "seoDescription": ""
+        }
+      ],
       "roleAccess": {
         "methodist": false,
         "educationalSupport": true,

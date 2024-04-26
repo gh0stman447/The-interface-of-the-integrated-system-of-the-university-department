@@ -38,7 +38,7 @@ export const RoleModal = ({ selectedRole, setSelectedRole, users, user: editedUs
       <DialogTrigger className={'my-6'}>
         <Button variant={'secondary'}>Назначить роль</Button>
       </DialogTrigger>
-      <DialogContent className={'bg-[#121212] text-white'}>
+      <DialogContent className={'dark:bg-[#121212] dark:text-white'}>
         <DialogHeader className='mb-6'>
           <p className='text-2xl'>Какую роль вы хотите назначить?</p>
         </DialogHeader>
@@ -51,7 +51,11 @@ export const RoleModal = ({ selectedRole, setSelectedRole, users, user: editedUs
               }}
               key={roleKey}
               variant='secondary'
-              className={tempSelectedRole === roles[roleKey] ? 'bg-teal-600 hover:bg-teal-700' : ''}
+              className={
+                tempSelectedRole === roles[roleKey]
+                  ? 'bg-teal-600 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-700'
+                  : ''
+              }
               onClick={() => handleRoleSelection(roles[roleKey])}
             >
               {roles[roleKey]}

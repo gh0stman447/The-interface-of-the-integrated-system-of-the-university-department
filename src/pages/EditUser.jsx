@@ -30,10 +30,11 @@ export const EditUser = () => {
         onClick: () => {},
       },
     });
+
     const [user] = JSON.parse(localStorage.getItem('currentUser'));
 
     if (userData.id === user.id) {
-      localStorage.setItem('currentUser', JSON.stringify([userData]));
+      localStorage.setItem('currentUser', JSON.stringify([{ ...userData, role: selectedRole }]));
     }
 
     dispatch(
@@ -55,7 +56,7 @@ export const EditUser = () => {
 
   return (
     <>
-      <h1 className='text-2xl'>Изменение пользователя {user?.firstName}</h1>
+      <h1 className='text-2xl'>Изменение пользователя {user.firstName}</h1>
       <div className='flex flex-col max-w-screen-lg space-y-6 mt-8'>
         <div className='flex flex-col gap-y-2'>
           <p>Фамилия</p>
@@ -113,13 +114,6 @@ export const EditUser = () => {
             onChange={(e) => setUserData({ ...userData, position: e.target.value })}
           />
         </div>
-        <div className='flex flex-col gap-y-2'>
-          <p>Статус</p>
-          <Input
-            value={userData.status}
-            onChange={(e) => setUserData({ ...userData, status: e.target.value })}
-          />
-        </div>
       </div>
 
       <RoleModal
@@ -129,18 +123,12 @@ export const EditUser = () => {
         user={user}
       />
 
-      <div className='flex items-center gap-4'>
+      <div className='flex items-center gap-4 my-10'>
         <Link to='/admin/users'>
-          <Button className={'my-10'} variant={'secondary'}>
-            Назад
-          </Button>
+          <Button variant={'secondary'}>Назад</Button>
         </Link>
         <Link>
-          <Button
-            onClick={() => saveUserHandler(userData)}
-            className={'w-fit'}
-            variant={'secondary'}
-          >
+          <Button onClick={() => saveUserHandler(userData)} variant={'secondary'}>
             Сохранить
           </Button>
         </Link>

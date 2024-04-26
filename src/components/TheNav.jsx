@@ -20,7 +20,7 @@ export const TheNav = () => {
   let itemsToDisplay = isAdmin ? navItems : filterItemsForRole(navItems, role);
 
   return (
-    <nav className='overflow-auto'>
+    <nav className='overflow-auto border-t border-slate-400 dark:border-slate-600'>
       <Accordion type='single' collapsible>
         {itemsToDisplay.map(({ title, id, submodules }, i) => (
           <AccordionItem value={`item-${i}`} key={id}>

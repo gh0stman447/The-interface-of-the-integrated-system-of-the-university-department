@@ -34,14 +34,14 @@ export const getModuleListAction = createAsyncThunk(
 export const addModuleAction = createAsyncThunk(
   'module/postModuleListAction',
   async (payload, { dispatch }) => {
-    const { description, title, roles } = payload;
+    const { description, title, roleAccess } = payload;
     const newModule = {
       title,
       description,
       seoTitle: '',
       seoDescription: '',
       submodules: [],
-      roleAccess: roles,
+      roleAccess: roleAccess,
     };
 
     await postModuleApi(newModule);

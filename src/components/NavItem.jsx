@@ -4,8 +4,9 @@ import { roles } from '../constants/roles';
 
 export const NavItem = ({ children: title, id, role }) => {
   const itemClasses = {
-    isActive: 'flex items-center text-white bg-[#282828] px-2 py-2 mx-2 mx-4 rounded',
-    notIsActive: 'flex items-center hover:text-white px-2 py-2 mx-2 mx-4 rounded duration-300',
+    isActive: 'flex items-center bg-[#111111]/15 dark:bg-[#282828] px-2 py-2 mx-2 mx-4 rounded',
+    notIsActive:
+      'flex items-center hover:bg-[#111111]/5 dark:hover:bg-[#28282880] dark:text-white px-2 py-2 mx-2 mx-4 rounded duration-300',
   };
 
   return (

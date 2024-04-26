@@ -19,7 +19,7 @@ export const QuestionModal = ({ action, id, type }) => {
       <DialogTrigger className={'my-6'}>
         <Button variant={'secondary'}>Удалить</Button>
       </DialogTrigger>
-      <DialogContent className={'bg-[#121212] text-white'}>
+      <DialogContent className={'dark:bg-[#121212] dark:text-white'}>
         <DialogHeader>
           {type === 'user' ? (
             <p className='text-2xl'>Вы действительно хотете удалить пользователя?</p>

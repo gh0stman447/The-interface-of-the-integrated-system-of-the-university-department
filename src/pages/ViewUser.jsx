@@ -24,7 +24,6 @@ export const ViewUser = () => {
         <p>Пароль: {user.password}</p>
         <p>Номер договора: {user.contractNumber}</p>
         <p>Должность: {user.position}</p>
-        <p>Статус: {user.status}</p>
         <p>Роль: {user.role}</p>
       </div>
       <Link to='/admin/users'>

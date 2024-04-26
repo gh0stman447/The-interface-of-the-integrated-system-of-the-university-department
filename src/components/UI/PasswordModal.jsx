@@ -53,11 +53,11 @@ export const PasswordModal = () => {
 
   return (
     <Dialog>
-      <DialogTrigger className={'my-6 text-left'}>
+      <DialogTrigger ogTrigger className={'my-6 text-left w-fit'}>
         <Button variant={'secondary'}>Изменить пароль</Button>
       </DialogTrigger>
-      <DialogContent className={'bg-[#121212] text-white'}>
-        <DialogHeader className={'mb-4'}>Изменение пароля</DialogHeader>
+      <DialogContent className={'dark:bg-[#121212] dark:text-white'}>
+        <DialogHeader className={'mb-4 text-xl'}>Изменение пароля</DialogHeader>
         <div className='flex gap-4'>
           <span className='w-1/2'>Старый пароль</span>
           <Input
@@ -82,11 +82,7 @@ export const PasswordModal = () => {
           />
         </div>
         <DialogFooter>
-          <Button
-            onClick={() => changePasswordHandler()}
-            className={'justify-center'}
-            variant={'secondary'}
-          >
+          <Button onClick={() => changePasswordHandler()} variant={'secondary'}>
             Изменить
           </Button>
         </DialogFooter>
