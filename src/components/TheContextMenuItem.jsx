@@ -8,7 +8,6 @@ export const TheContextMenuItem = ({ children: label, onClick: closeContextMenu 
 
   const handleClick = () => {
     closeContextMenu();
-
     if (label.toLowerCase() === menuOptions.exit.toLocaleLowerCase()) {
       localStorage.clear();
       navigate('/auth');

@@ -11,6 +11,8 @@ export const AddSubmoduleModal = ({ id }) => {
   const submoduleFieldsConfig = [
     { label: 'Название модуля', name: 'title' },
     { label: 'Описание модуля', name: 'description' },
+    { label: 'SEO метатег Title', name: 'seoTitle' },
+    { label: 'SEO метатег Description', name: 'seoDescription' },
   ];
 
   return (

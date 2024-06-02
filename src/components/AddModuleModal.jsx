@@ -11,6 +11,8 @@ export const AddModuleModal = () => {
   const moduleFieldsConfig = [
     { label: 'Название деятельности', name: 'title' },
     { label: 'Описание деятельности', name: 'description' },
+    { label: 'SEO метатег title', name: 'seoTitle' },
+    { label: 'SEO метатег description', name: 'SeoDescription' },
   ];
 
   return (

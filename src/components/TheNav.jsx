@@ -11,6 +11,7 @@ import {
 import { roles } from '../constants/roles';
 
 export const TheNav = () => {
+
   const navItems = useSelector((state) => state.modules.modules);
   const [{ role }] = JSON.parse(localStorage.getItem('currentUser'));
   const isAdmin = role === roles.admin;

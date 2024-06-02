@@ -6,9 +6,6 @@ import {
   putModuleApi,
 } from '../../services/modules/ModulesService';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { GiBookshelf } from 'react-icons/gi';
-import { HiAcademicCap } from 'react-icons/hi2';
-import { IoBookSharp } from 'react-icons/io5';
 
 const initialState = {
   modules: [],
@@ -34,12 +31,12 @@ export const getModuleListAction = createAsyncThunk(
 export const addModuleAction = createAsyncThunk(
   'module/postModuleListAction',
   async (payload, { dispatch }) => {
-    const { description, title, roleAccess } = payload;
+    const { description, title, roleAccess, seoDescription, seoTitle } = payload;
     const newModule = {
       title,
       description,
-      seoTitle: '',
-      seoDescription: '',
+      seoTitle,
+      seoDescription,
       submodules: [],
       roleAccess: roleAccess,
     };
@@ -89,8 +86,7 @@ export const addSubmoduleAction = createAsyncThunk(
         {
           ...inputData,
           id: allSubmodules.length > 0 ? newSubmoduleId : 1,
-          seoTitle: '',
-          seoDescription: '',
+          jsonData: null,
         },
       ],
     };
@@ -121,7 +117,7 @@ export const deleteSubmoduleAction = createAsyncThunk(
 
 export const updateSubmoduleAction = createAsyncThunk(
   'module/updateModuleListAction',
-  async ({ submoduleId, moduleData, submoduleData }, { dispatch, getState }) => {
+  async ({ submoduleId, moduleData, submoduleData }, { dispatch }) => {
     const updatedSubmodules = moduleData.submodules.map((submodule) =>
       submodule.id == submoduleId ? { ...submodule, ...submoduleData } : submodule,
     );

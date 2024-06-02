@@ -31,9 +31,11 @@ export const QuestionModal = ({ action, id, type }) => {
         </DialogHeader>
         <DialogFooter>
           <DialogClose>
-            <Button onClick={() => handler()} className={'justify-center'} variant={'secondary'}>
-              Удалить
-            </Button>
+            <div className='text-end'>
+              <Button onClick={() => handler()} variant={'secondary'}>
+                Удалить
+              </Button>
+            </div>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

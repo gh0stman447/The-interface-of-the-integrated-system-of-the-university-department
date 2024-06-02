@@ -15,7 +15,7 @@
     {
       "id": "df82",
       "login": "andrei123",
-      "password": "123456",
+      "password": "12345",
       "email": "Andrei@bk.ru",
       "lastName": "Андреев",
       "firstName": "Андрей",
@@ -23,6 +23,18 @@
       "contractNumber": "2392349234",
       "position": "Должность",
       "role": "Методист"
+    },
+    {
+      "id": "e886",
+      "login": "12345",
+      "password": "12345",
+      "email": "vicor24@bk.ru",
+      "lastName": "Викторов",
+      "firstName": "Виктор",
+      "surName": "Викторович",
+      "contractNumber": "123143243124231",
+      "position": "Должность какая-то",
+      "role": "Заведующий кафедрой"
     }
   ],
   "modules": [
@@ -35,17 +47,16 @@
       "submodules": [
         {
           "title": "Модуль 1",
-          "description": "Описание модуля 1",
-          "id": 1,
-          "seoTitle": "",
-          "seoDescription": ""
+          "description": "Описание модуля",
+          "id": 6,
+          "seoTitle": "Module 1",
+          "seoDescription": "Description...",
+          "jsonData": ""
         },
         {
           "title": "Модуль 2",
-          "description": "Описание модуля 2",
-          "id": 2,
-          "seoTitle": "",
-          "seoDescription": ""
+          "id": 7,
+          "jsonData": null
         }
       ],
       "roleAccess": {
@@ -76,14 +87,14 @@
       "seoDescription": "",
       "submodules": [
         {
-          "title": "12321",
+          "title": "Модуль 1",
           "description": "3231",
           "id": 4,
           "seoTitle": "",
           "seoDescription": ""
         },
         {
-          "title": "1232",
+          "title": "Модуль 2",
           "description": "12312",
           "id": 5,
           "seoTitle": "",
@@ -113,15 +124,7 @@
       "description": "12312321",
       "seoTitle": "",
       "seoDescription": "",
-      "submodules": [
-        {
-          "title": "213",
-          "description": "12321",
-          "id": 3,
-          "seoTitle": "",
-          "seoDescription": ""
-        }
-      ],
+      "submodules": [],
       "roleAccess": {
         "methodist": false,
         "educationalSupport": true,

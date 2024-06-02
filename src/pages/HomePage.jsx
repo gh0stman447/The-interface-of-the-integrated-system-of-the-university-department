@@ -7,8 +7,17 @@ import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { getModuleListAction } from '../state/modulesNav/modulesSlice';
 import { getUserListAction } from '../state/users/usersSlice';
+import { useNavigate } from 'react-router-dom';
 
 export const HomePage = () => {
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (!localStorage.getItem('currentUser')) {
+  //     navigate('/auth');
+  //   }
+  // }, [navigate]);
+
   const contentWrapperRef = useRef(null);
   let isScrollingEnabled = true;
 

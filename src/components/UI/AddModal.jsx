@@ -49,7 +49,9 @@ export const AddModal = ({
       <DialogTrigger className={'my-6'}>
         <Button variant={'secondary'}>{buttonTitle}</Button>
       </DialogTrigger>
-      <DialogContent className={'dark:bg-[#121212] dark:text-white overflow-y-scroll max-h-[95%]'}>
+      <DialogContent
+        className={'dark:bg-[#121212] dark:text-white overflow-y-scroll max-h-[95%] w-[95%]'}
+      >
         <DialogHeader>
           <p className='text-2xl'>{title}</p>
         </DialogHeader>
@@ -102,9 +104,11 @@ export const AddModal = ({
         </div>
         <DialogFooter>
           <DialogClose>
-            <Button onClick={handleAction} className={'justify-center'} variant={'secondary'}>
-              Добавить
-            </Button>
+            <div className='text-end'>
+              <Button onClick={handleAction} variant={'secondary'}>
+                Добавить
+              </Button>
+            </div>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

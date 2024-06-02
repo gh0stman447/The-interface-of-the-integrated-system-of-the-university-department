@@ -108,12 +108,7 @@ export const TheAvatar = ({ toggleScrolling }) => {
   }
 
   return (
-    <a
-      href='/'
-      onContextMenu={openContextMenu}
-      onClick={(e) => e.preventDefault()}
-      className='rounded-full'
-    >
+    <a href='/' onClick={openContextMenu} className='rounded-full'>
       <Person className={`${colorClasses}`} />
       {isContextMenuOpen && (
         <TheContextMenu
