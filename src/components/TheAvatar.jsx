@@ -3,6 +3,7 @@ import { TheContextMenu } from './TheContextMenu';
 import { Person } from './Icons/Person';
 import { menuOptions } from '../constants/menuOptions';
 import { roles } from '../constants/roles';
+import { usePersistantCurrentUser } from './TheNav';
 
 const clickPosition = { x: null, y: null };
 
@@ -28,8 +29,6 @@ const menuAdminItems = [
 ];
 
 export const TheAvatar = ({ toggleScrolling }) => {
-  const [{ role }] = JSON.parse(localStorage.getItem('currentUser'));
-
   const [isContextMenuOpen, setIsContextMenuOpen] = useState(false);
   const contextMenuRef = useRef(null);
 
@@ -38,7 +37,7 @@ export const TheAvatar = ({ toggleScrolling }) => {
     : 'dark:text-white hover:text-stone-400 dark:hover:text-[#272727]';
 
   const menuClasses = `bg-white dark:bg-[#282828] dark:text-[#eaeaea] text-sm p-1 rounded shadow-xl fixed z-20
-    cursor-default whitespace-nowrap divide-y dark:divide-[#3e3e3e]`;
+  cursor-default whitespace-nowrap divide-y dark:divide-[#3e3e3e]`;
 
   function updateContextMenuHorizontalPosition() {
     const menuWidth = contextMenuRef.current.offsetWidth;
@@ -93,6 +92,9 @@ export const TheAvatar = ({ toggleScrolling }) => {
       document.removeEventListener('keydown', handleEsc);
     };
   });
+
+  const role = usePersistantCurrentUser()?.role;
+  if (!role) return null;
 
   const openContextMenu = (event) => {
     event.preventDefault();

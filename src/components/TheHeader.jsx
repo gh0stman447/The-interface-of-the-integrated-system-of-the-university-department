@@ -1,9 +1,12 @@
 import React from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { TheAvatar } from './TheAvatar';
+import { usePersistantCurrentUser } from './TheNav';
 
 export const TheHeader = ({ toggleScrolling }) => {
-  const [{ firstName, lastName }] = JSON.parse(localStorage.getItem('currentUser'));
+  const currentUser = usePersistantCurrentUser();
+  const firstName = currentUser?.firstName ?? '';
+  const lastName = currentUser?.lastName ?? '';
   const userName = `${firstName} ${lastName}`;
 
   return (
